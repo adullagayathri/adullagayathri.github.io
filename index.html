@@ -1,164 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gayathri Adullaga - Data Science Portfolio</title>
-  
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gayathri Adulla | Data Engineer & Data Scientist</title>
 
-  <!-- CSS Styling -->
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Roboto', sans-serif; }
-    body { line-height: 1.6; background: #f4f4f9; color: #333; }
-    a { color: #3498db; text-decoration: none; }
-    a:hover { text-decoration: underline; }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    header { background: #2c3e50; color: white; padding: 60px 20px; text-align: center; }
-    header h1 { font-size: 3em; margin-bottom: 10px; }
-    header p { font-size: 1.2em; margin-top: 10px; }
+<style>
+* {margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body {
+  background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  color:white;
+  scroll-behavior:smooth;
+}
+section {padding:80px 10%;}
+h1,h2,h3 {font-weight:700;}
+h2 {margin-bottom:30px;font-size:32px;text-align:center;}
 
-    section { padding: 60px 20px; max-width: 1000px; margin: auto; }
-    h2 { text-align: center; margin-bottom: 40px; color: #2c3e50; }
+.hero {
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  animation:fadeIn 2s ease-in;
+}
+.hero-text {max-width:600px;}
+.hero-text h1 {font-size:48px;}
+.hero-text h3 {color:#00e6e6;margin:15px 0;}
+.hero img {
+  width:300px;
+  border-radius:50%;
+  box-shadow:0 0 40px rgba(0,255,255,0.5);
+}
 
-    /* Cards */
-    .card { background: white; padding: 20px; margin: 20px 0; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-    .card h3 { color: #3498db; margin-bottom: 10px; }
-    .card h4 { color: #555; margin-bottom: 10px; font-weight: 500; }
-    .card ul { list-style: disc; margin-left: 20px; margin-top: 10px; }
+.btn {
+  display:inline-block;
+  margin-top:20px;
+  padding:12px 25px;
+  background:#00e6e6;
+  color:black;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+}
+.btn:hover {transform:scale(1.1);}
 
-    /* Projects grid */
-    .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.cards {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:25px;
+}
+.card {
+  background:rgba(255,255,255,0.05);
+  padding:25px;
+  border-radius:15px;
+  backdrop-filter:blur(10px);
+  transition:0.3s;
+}
+.card:hover {
+  transform:translateY(-10px);
+  box-shadow:0 0 20px rgba(0,255,255,0.5);
+}
+.card a {color:#00e6e6;text-decoration:none;}
 
-    /* Skills badges */
-    .badges img { margin: 5px 5px 5px 0; }
+.skills span {
+  display:inline-block;
+  margin:10px;
+  padding:8px 15px;
+  background:#00e6e6;
+  color:black;
+  border-radius:20px;
+  font-size:14px;
+}
 
-    /* Footer / contact */
-    footer { text-align: center; padding: 30px 20px; background: #2c3e50; color: white; }
-    footer a { color: #f39c12; }
+footer {
+  text-align:center;
+  padding:40px;
+  background:#00000055;
+}
 
-    /* Responsive adjustments */
-    @media(max-width: 600px) {
-      header h1 { font-size: 2.2em; }
-      header p { font-size: 1em; }
-    }
-  </style>
+@keyframes fadeIn {from{opacity:0} to{opacity:1}}
+</style>
 </head>
+
 <body>
 
-  <!-- Header / About -->
-  <header>
-    <h1>Gayathri Adullaga</h1>
-    <p>Data Science & Machine Learning Professional | Python, PyTorch, SQL, Spark | AI Enthusiast</p>
-    <p>Building end-to-end ML and data solutions across FinTech, Healthcare, and Research</p>
-  </header>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>Gayathri Adulla</h1>
+    <h3>Data Engineer | Data Scientist | ML Systems Builder</h3>
+    <p>
+      Architecting scalable data pipelines, intelligent ML systems, and research-grade AI solutions.
+      Bridging distributed data engineering with advanced machine learning.
+    </p>
+    <a href="#projects" class="btn">View My Work</a>
+  </div>
+  <img src="your-photo.jpg" alt="Gayathri Photo">
+</section>
 
-  <!-- Skills Section -->
-  <section id="skills">
-    <h2>Technical Skills</h2>
-    <div class="card badges" style="text-align:center;">
-      <!-- Programming -->
-      <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
-      <img src="https://img.shields.io/badge/R-276DC3?style=for-the-badge&logo=r&logoColor=white" alt="R">
-      <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white" alt="Java">
-      <img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" alt="C++">
-      <img src="https://img.shields.io/badge/SQL-00758F?style=for-the-badge&logo=mysql&logoColor=white" alt="SQL">
-      <!-- Libraries / ML -->
-      <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch">
-      <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" alt="TensorFlow">
-      <img src="https://img.shields.io/badge/Scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white" alt="Scikit-learn">
-      <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas">
-      <img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white" alt="NumPy">
-      <!-- Cloud / Tools -->
-      <img src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white" alt="AWS">
-      <img src="https://img.shields.io/badge/Databricks-FC6F26?style=for-the-badge&logo=databricks&logoColor=white" alt="Databricks">
-      <img src="https://img.shields.io/badge/Tableau-E97627?style=for-the-badge&logo=tableau&logoColor=white" alt="Tableau">
-      <img src="https://img.shields.io/badge/PowerBI-F2C80F?style=for-the-badge&logo=power-bi&logoColor=white" alt="PowerBI">
-    </div>
-  </section>
+<!-- ABOUT -->
+<section>
+<h2>About Me</h2>
+<p>
+I am a Data Engineer and Data Scientist with 2+ years of experience building large-scale analytics systems,
+predictive ML models, and research-grade AI pipelines across fintech, healthcare, and academic research.
+My expertise lies in distributed data systems (Spark, SQL), deep learning (PyTorch, TensorFlow),
+and ML system optimization. I focus on scalable architectures, reproducible pipelines, and production-ready AI solutions.
+</p>
+</section>
 
-  <!-- Experience Section -->
-  <section id="experience">
-    <h2>Experience</h2>
+<!-- EXPERIENCE -->
+<section>
+<h2>Professional Experience</h2>
+<div class="cards">
 
-    <div class="card">
-      <h3>Graduate Research Assistant</h3>
-      <h4>University at Buffalo | Aug 2025 - Present</h4>
-      <ul>
-        <li>Reconstructed 3D human body meshes from video using SMPL-X and built CPU-optimized rendering pipelines (PyTorch, NumPy, Trimesh, Pyrender).</li>
-        <li>Developed Hugging Face visualization tool for motion analysis and multi-video comparison.</li>
-        <li>Automated structured model outputs into interpretable visual artifacts, reducing manual debugging and improving evaluation efficiency.</li>
-      </ul>
-    </div>
+<div class="card">
+<h3>Graduate Research Assistant — University at Buffalo</h3>
+<p>Developed SMPL-X based 3D human mesh reconstruction pipelines, CPU-optimized rendering systems,
+and motion visualization tools integrating geometry processing with ML workflows.</p>
+</div>
 
-    <div class="card">
-      <h3>Decision Analytics Associate</h3>
-      <h4>ZS Associates, Pune, India | Jan 2023 - Jan 2024</h4>
-      <ul>
-        <li>Built ML models for drug sales forecasting (Scikit-learn, TensorFlow, PyTorch, R), improving accuracy by 20%.</li>
-        <li>Developed large-scale data pipelines using SQL, Spark, and Hadoop while ensuring data governance and secure VM workflows.</li>
-        <li>Performed advanced data analysis and visualization (Tableau, Power BI) and delivered executive-ready insights.</li>
-      </ul>
-    </div>
+<div class="card">
+<h3>Decision Analytics Associate — ZS Associates</h3>
+<p>Built pharmaceutical sales forecasting ML models and engineered distributed Spark/SQL pipelines
+for healthcare analytics at scale.</p>
+</div>
 
-    <div class="card">
-      <h3>Data Intelligence Analyst</h3>
-      <h4>TresVista Analytics, Bangalore, India | Jan 2024 - Aug 2024</h4>
-      <ul>
-        <li>Automated financial ETL pipelines using Python, SQL, VBA, Spark/Hadoop on AWS/GCP, improving efficiency.</li>
-        <li>Built interactive dashboards (Power BI, Tableau), reducing manual reporting effort by 50%.</li>
-        <li>Collaborated in agile teams to design analytics solutions using statistical modeling and Scikit-learn.</li>
-      </ul>
-    </div>
-  </section>
+<div class="card">
+<h3>Data Intelligence Analyst — TresVista Analytics</h3>
+<p>Automated financial ETL systems on AWS/GCP and built BI dashboards reducing manual reporting by 50%.</p>
+</div>
 
-  <!-- Projects Section -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="projects">
-      <div class="card">
-        <h3>Role-Based E-Commerce Management System</h3>
-        <p>Developed a multi-role e-commerce system using Java, OOP, MySQL, JDBC, and Java Swing with role-based access control, order lifecycle workflows, and modular backend design. Built normalized schemas and optimized SQL queries for transactions, inventory, and user management.</p>
-      </div>
-      <div class="card">
-        <h3>Multimodal Movie Genre Classification</h3>
-        <p>Built a multimodal deep learning model using DistilBERT + ResNet-18 (PyTorch, Hugging Face, Scikit-learn) for multi-label genre prediction. Implemented feature fusion, imbalance handling, F1-based evaluation; deployed via interactive web interface.</p>
-      </div>
-      <div class="card">
-        <h3>Partial Face Recognition Under Occlusion</h3>
-        <p>Designed a vision pipeline in Python, OpenCV, and Scikit-learn to identify individuals from partial facial regions. Combined HOG, SIFT, LBP, PCA features with SVM classification and cosine/Euclidean similarity for robust recognition under lighting, scale, and occlusion variations.</p>
-      </div>
-    </div>
-  </section>
+</div>
+</section>
 
-  <!-- Education Section -->
-  <section id="education">
-    <h2>Education</h2>
-    <div class="card">
-      <h3>State University of New York at Buffalo</h3>
-      <p>Master of Engineering Science, Artificial Intelligence</p>
-      <p><strong>Relevant Coursework:</strong> Data Intensive Computing, Computer Vision, Data Structures & Algorithms, Data Models & Query Languages</p>
-    </div>
-    <div class="card">
-      <h3>Mahindra University</h3>
-      <p>Bachelor of Technology, Artificial Intelligence</p>
-    </div>
-  </section>
+<!-- PROJECTS -->
+<section id="projects">
+<h2>Key Technical Projects</h2>
+<div class="cards">
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <div class="card" style="text-align:center;">
-      <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/adullagayathri">linkedin.com/in/adullagayathri</a></p>
-      <p>GitHub: <a href="https://github.com/adullagayathri">github.com/adullagayathri</a></p>
-    </div>
-  </section>
+<div class="card">
+<h3>Multimodal Movie Genre Classification</h3>
+<p>DistilBERT + ResNet fusion model for multi-label prediction using NLP + CV embeddings.</p>
+<a href="https://github.com/adullagayathri">View Repo →</a>
+</div>
 
-  <footer>
-    &copy; 2026 Gayathri Adullaga | Built with ❤️ using HTML & CSS
-  </footer>
+<div class="card">
+<h3>Partial Face Recognition</h3>
+<p>Occlusion-robust CV system using HOG, SIFT, LBP, PCA, and SVM.</p>
+<a href="https://github.com/adullagayathri">View Repo →</a>
+</div>
+
+<div class="card">
+<h3>Brain Tumour Detection</h3>
+<p>Medical CNN pipeline for MRI classification with sensitivity and ROC metrics.</p>
+<a href="https://github.com/adullagayathri">View Repo →</a>
+</div>
+
+<div class="card">
+<h3>MNIST & CIFAR Deep Learning</h3>
+<p>CNN experimentation for image classification, regularization, and optimization strategies.</p>
+<a href="https://github.com/adullagayathri">View Repo →</a>
+</div>
+
+<div class="card">
+<h3>3D Human Mesh Rendering</h3>
+<p>SMPL-X mesh reconstruction, geometry processing, and visualization pipelines.</p>
+<a href="https://github.com/adullagayathri">View Repo →</a>
+</div>
+
+<div class="card">
+<h3>Role-Based E-Commerce System</h3>
+<p>Enterprise-style RBAC system with Java OOP, JDBC, and MySQL schema optimization.</p>
+<a href="https://github.com/adullagayathri">View Repo →</a>
+</div>
+
+</div>
+</section>
+
+<!-- SKILLS -->
+<section>
+<h2>Technical Stack</h2>
+<div class="skills">
+<span>Python</span><span>SQL</span><span>Spark</span><span>PyTorch</span><span>TensorFlow</span>
+<span>AWS</span><span>GCP</span><span>Databricks</span><span>Tableau</span><span>Power BI</span>
+<span>Computer Vision</span><span>NLP</span><span>ETL Pipelines</span><span>Distributed Systems</span>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section>
+<h2>Contact</h2>
+<p>Email: your.email@example.com</p>
+<p>GitHub: <a href="https://github.com/adullagayathri" style="color:#00e6e6">github.com/adullagayathri</a></p>
+<p>LinkedIn: linkedin.com/in/yourprofile</p>
+</section>
+
+<footer>
+© 2026 Gayathri Adulla | Data Engineering & AI Systems Portfolio
+</footer>
 
 </body>
 </html>
