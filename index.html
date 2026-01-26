@@ -5,59 +5,55 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gayathri Adulla | Data Engineer & AI Systems Scientist</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;scroll-behavior:smooth;}
-body{background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);color:white;}
-nav{position:fixed;width:100%;top:0;left:0;background:#000000dd;padding:15px 10%;display:flex;justify-content:space-between;align-items:center;z-index:999;transition:0.3s;}
-nav a{color:#00e6e6;text-decoration:none;margin-left:25px;font-weight:600;transition:0.3s;}
-nav a:hover{color:white;}
-section{padding:120px 10%;min-height:100vh;opacity:0;transform:translateY(50px);transition:all 0.8s ease-in-out;}
-section.visible{opacity:1;transform:translateY(0);}
-h1,h2,h3{font-weight:700;}
-h2{text-align:center;margin-bottom:50px;font-size:36px;color:#00e6e6;}
-p{line-height:1.8;margin-bottom:18px;color:#e6f7ff;}
-.hero{height:100vh;display:flex;align-items:center;justify-content:space-between;animation:fadeIn 2s ease;}
-.hero-text{max-width:650px;}
-.hero-text h1{font-size:52px;}
-.hero-text h3{margin:20px 0;color:#00e6e6;}
-.hero img{width:280px;border-radius:50%;box-shadow:0 0 45px rgba(0,255,255,0.6);}
-.btn{display:inline-block;margin-top:25px;padding:14px 30px;background:#00e6e6;color:black;border-radius:30px;text-decoration:none;font-weight:600;transition:.3s;}
-.btn:hover{transform:scale(1.1);}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:35px;}
-.card{background:rgba(255,255,255,0.05);padding:30px;border-radius:18px;backdrop-filter:blur(10px);transition:.5s;cursor:pointer;}
-.card:hover{transform:translateY(-12px) scale(1.02);box-shadow:0 0 40px rgba(0,255,255,0.5);}
-.card a{color:#00e6e6;text-decoration:none;font-weight:600;transition:.3s;}
-.card a:hover{text-decoration:underline;}
-.skills span{display:inline-block;margin:12px;padding:10px 20px;background:#00e6e6;color:black;border-radius:25px;font-size:14px;transition:.3s;}
-.skills span:hover{background:white;color:#00e6e6;}
-footer{text-align:center;padding:50px;background:#00000055;margin-top:60px;}
-@keyframes fadeIn{0%{opacity:0;}100%{opacity:1;}}
+/* ---------------- GENERAL ---------------- */
+* {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif;}
+body {background:linear-gradient(135deg,#0f2027,#203a43,#2c5364); color:white; scroll-behavior:smooth;}
+section {padding:60px 10%;}
+h1,h2,h3 {font-weight:700;}
+h2 {text-align:center; margin-bottom:35px; font-size:36px; color:#00e6e6;}
+p {line-height:1.8; margin-bottom:16px; color:#e6f7ff;}
+a {text-decoration:none;}
+.btn {display:inline-block; margin-top:20px; padding:12px 28px; background:#00e6e6; color:black; border-radius:30px; font-weight:600; transition:.3s;}
+.btn:hover {transform:scale(1.05);}
+
+/* ---------------- HERO ---------------- */
+.hero {height:100vh; display:flex; align-items:center; justify-content:space-between; opacity:0; transform:translateY(20px); transition:1s;}
+.hero-text {max-width:650px;}
+.hero-text h1 {font-size:50px;}
+.hero-text h3 {margin:15px 0; color:#00e6e6;}
+.hero img {width:300px; border-radius:50%; box-shadow:0 0 45px rgba(0,255,255,0.6);}
+
+/* ---------------- CARDS ---------------- */
+.cards {display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:30px;}
+.card {background:rgba(255,255,255,0.05); padding:25px; border-radius:18px; backdrop-filter:blur(10px); transition:.5s; opacity:0; transform:translateY(20px);}
+.card:hover {transform:translateY(-12px) scale(1.02); box-shadow:0 0 35px rgba(0,255,255,0.5);}
+.card a {color:#00e6e6; font-weight:600;}
+
+/* ---------------- SKILLS ---------------- */
+.skills span {display:inline-block; margin:10px; padding:10px 20px; background:#00e6e6; color:black; border-radius:25px; font-size:14px; transition:.3s; cursor:pointer;}
+.skills span:hover {transform:scale(1.2); background:#00ffff;}
+
+/* ---------------- FOOTER ---------------- */
+footer {text-align:center; padding:40px; background:#00000055; margin-top:40px;}
+
+/* ---------------- FADE IN ANIMATION ---------------- */
+.fade-in {opacity:1 !important; transform:translateY(0) !important;}
 </style>
 </head>
+
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="logo"><a href="#home">Gayathri Adulla</a></div>
-  <div class="nav-links">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#resume">Resume</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
-
 <!-- HERO -->
-<section id="home" class="hero">
+<section class="hero" id="home">
   <div class="hero-text">
     <h1>Gayathri Adulla</h1>
-    <h3>Data Engineer & AI Systems Scientist</h3>
-    <p>
-      I design scalable data platforms, production-grade machine learning pipelines, and research-level AI systems.
-      My work bridges distributed data engineering, deep learning, and computer vision research for fintech, healthcare, and 3D modeling.
-    </p>
-    <a href="#projects" class="btn">Explore My Work</a>
+    <h3>Designing Scalable Data Systems & Production ML Pipelines</h3>
+    <p>Data Engineer and Data Scientist with 2+ years of experience building distributed data platforms,
+      deep learning systems, and research-grade AI pipelines across fintech, healthcare analytics,
+      and academic computer vision research.</p>
+    <a href="#projects" class="btn">View Technical Work</a>
   </div>
   <img src="profile_photo.jpg" alt="Gayathri Photo">
 </section>
@@ -65,56 +61,55 @@ footer{text-align:center;padding:50px;background:#00000055;margin-top:60px;}
 <!-- ABOUT -->
 <section id="about">
 <h2>About Me</h2>
-<p>
-I am a Data Engineer and AI Systems Scientist with 2+ years of experience creating end-to-end solutions across fintech, healthcare, and academic research.
-I specialize in building pipelines from raw data ingestion, distributed processing, ML model training, and deployment, with a focus on reproducibility, scalability, and performance.
-</p>
-<p>
-My technical expertise spans Spark, SQL, Hadoop, AWS, GCP, PyTorch, TensorFlow, computer vision, NLP, and 3D modeling.
-I approach every project with a systems engineering mindset: modular architecture, automation, and rigorous evaluation.
-</p>
-<p>
-Currently pursuing a Master's in Engineering Science (Artificial Intelligence) at SUNY Buffalo, building on my B.Tech in AI from Mahindra University.
-I am passionate about leveraging data-driven insights to solve complex problems and deliver actionable outcomes.
-</p>
+<p>I specialize in building intelligent systems that bridge large-scale data engineering with applied machine learning.
+My work focuses on designing end-to-end pipelines — from raw data ingestion and distributed processing
+to model training, evaluation, visualization, and deployment.</p>
+<p>With experience in Spark, SQL, AWS, GCP, PyTorch, and TensorFlow, I develop solutions that are scalable,
+reproducible, and production-ready. My academic research extends into 3D human mesh reconstruction,
+where I combine computer vision, geometry processing, and rendering systems.</p>
+<p>I approach engineering with a systems mindset: modular architecture, automation, performance optimization,
+and rigorous evaluation using domain-relevant metrics.</p>
 </section>
 
-<!-- RESUME -->
-<section id="resume">
-<h2>Professional Experience & Education</h2>
+<!-- EDUCATION -->
+<section id="education">
+<h2>Education</h2>
+<div class="cards">
+<div class="card">
+<h3>Master of Engineering Science — Artificial Intelligence</h3>
+<p><strong>University at Buffalo</strong> (2024-2025)</p>
+<p>Relevant Coursework: Data Intensive Computing, Computer Vision, Data Structures & Algorithms, Data Models & Query Languages</p>
+</div>
+<div class="card">
+<h3>Bachelor of Technology — Artificial Intelligence</h3>
+<p><strong>Mahindra University</strong> (2019-2024)</p>
+</div>
+</div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+<h2>Professional Experience</h2>
 <div class="cards">
 
 <div class="card">
 <h3>Graduate Research Assistant — University at Buffalo</h3>
-<p>
-Led a research-grade 3D human mesh reconstruction project using SMPL-X parametric modeling. I designed a CPU-optimized rendering pipeline integrating PyTorch, Trimesh, and Pyrender.
-Developed visualization tools converting NPZ motion outputs into interpretable visual artifacts, improving evaluation efficiency.
-Implemented automation for multi-video motion comparison, reducing manual debugging by 60%.
-</p>
+<p>Engineered a research-grade 3D human mesh reconstruction system using SMPL-X parametric modeling.
+Built CPU-optimized rendering pipelines with PyTorch, Trimesh, and Pyrender for large motion datasets.
+Developed tools converting NPZ model outputs into structured visual artifacts for analysis and evaluation.</p>
 </div>
 
 <div class="card">
 <h3>Decision Analytics Associate — ZS Associates</h3>
-<p>
-Spearheaded development of machine learning forecasting pipelines for pharmaceutical sales, using ensemble models and neural networks.
-Engineered large-scale distributed data pipelines in SQL, Spark, and Hadoop to process patient-level data.
-Created executive dashboards using Tableau and Power BI to transform complex predictive insights into actionable business strategies.
-</p>
+<p>Developed ML forecasting systems for pharmaceutical sales using ensemble learning and neural networks.
+Engineered distributed data pipelines using SQL, Spark, and Hadoop for high-volume healthcare analytics.
+Built BI dashboards translating predictive insights into executive decision-making tools.</p>
 </div>
 
 <div class="card">
 <h3>Data Intelligence Analyst — TresVista Analytics</h3>
-<p>
-Automated financial ETL pipelines on AWS and GCP using Python and Spark, improving operational efficiency by 50%.
-Built interactive dashboards and statistical models to support client-driven decision-making.
-Collaborated with cross-functional teams to translate business requirements into scalable data solutions.
-</p>
-</div>
-
-<div class="card">
-<h3>Education</h3>
-<p><strong>Master of Engineering Science (Artificial Intelligence)</strong> — SUNY Buffalo (2024-2025) | GPA: 4.0/4.0</p>
-<p><strong>Bachelor of Technology (Artificial Intelligence)</strong> — Mahindra University (2019-2024)</p>
+<p>Automated financial ETL pipelines on AWS/GCP using Python and Spark.
+Designed reporting dashboards and statistical models improving operational efficiency by 50%.</p>
 </div>
 
 </div>
@@ -126,69 +121,48 @@ Collaborated with cross-functional teams to translate business requirements into
 <div class="cards">
 
 <div class="card">
+<img src="mm.jpeg" alt="Project Image" style="width:100%; border-radius:15px; margin-bottom:15px;">
 <h3>🎬 Multimodal Movie Genre Classification</h3>
-<p>
-I led this project end-to-end: collected and preprocessed large-scale movie metadata and poster images.
-Built a multimodal deep learning system combining DistilBERT text embeddings with ResNet-18 visual features.
-Designed a dual-branch architecture with late feature fusion, handling multi-label classification for 788 genres.
-Addressed class imbalance with weighted BCE loss and applied dropout, batch normalization, and learning rate scheduling.
-The deployed web interface allows interactive testing and visualization of predictions.
-<br><a href="https://github.com/adullagayathri" target="_blank">View Repository →</a>
-</p>
+<p>Designed a multimodal deep learning system integrating DistilBERT text embeddings with ResNet-18 visual features. Led the full pipeline: data preprocessing, feature fusion, model training, evaluation using macro/micro F1 metrics, and deployment via a web interface. Addressed class imbalance with weighted loss functions, implemented dropout and normalization, and presented results with an interactive demo showing predictions on test data.</p>
+<a href="https://github.com/adullagayathri" target="_blank">View Repository →</a>
 </div>
 
 <div class="card">
+<img src="bb.jpeg" alt="Project Image" style="width:100%; border-radius:15px; margin-bottom:15px;">
 <h3>👁 Partial Face Recognition Under Occlusion</h3>
-<p>
-Led the development of a robust face recognition pipeline under occlusion. Engineered feature extraction using HOG, SIFT, LBP, and PCA for dimensionality reduction.
-Trained SVM classifiers with cosine and Euclidean similarity metrics for improved recognition under varying lighting, scale, and occlusion conditions.
-Implemented automated testing and evaluation metrics, achieving high accuracy on challenging datasets.
-<br><a href="https://github.com/adullagayathri" target="_blank">View Repository →</a>
-</p>
+<p>Engineered a hybrid classical CV pipeline robust to facial occlusion. Extracted HOG, SIFT, and LBP descriptors, applied PCA for dimensionality reduction, and trained SVM classifiers. Implemented cosine and Euclidean similarity metrics for robust matching under varying lighting and scale.</p>
+<a href="https://github.com/adullagayathri" target="_blank">View Repository →</a>
 </div>
 
 <div class="card">
+<img src="br.jpeg" alt="Project Image" style="width:100%; border-radius:15px; margin-bottom:15px;">
 <h3>🧠 Brain Tumour Detection</h3>
-<p>
-Designed and implemented a CNN-based MRI classification pipeline.
-Performed preprocessing, augmentation, normalization, and regularization to improve model generalization.
-Evaluated clinically relevant metrics: sensitivity, specificity, and ROC-AUC.
-Collaborated on fine-tuning hyperparameters and model architectures to achieve state-of-the-art performance on public datasets.
-<br><a href="https://github.com/adullagayathri" target="_blank">View Repository →</a>
-</p>
+<p>Developed a CNN-based MRI classification pipeline. Applied medical image preprocessing, augmentation, and regularization. Evaluated using sensitivity, specificity, and ROC-AUC for clinically relevant performance. Optimized the workflow to handle large medical datasets efficiently.</p>
+<a href="https://github.com/adullagayathri" target="_blank">View Repository →</a>
 </div>
-
 <div class="card">
-<h3>🔢 MNIST & CIFAR CNN Systems</h3>
-<p>
-Developed CNN architectures with batch normalization, dropout, and data augmentation for MNIST and CIFAR datasets.
-Explored optimization techniques (Adam, RMSProp) and activation functions to improve convergence and generalization.
-Led experiments comparing model depth, regularization, and augmentation strategies to achieve stable performance.
-<br><a href="https://github.com/adullagayathri" target="_blank">View Repository →</a>
-</p>
-</div>
-
-<div class="card">
-<h3>🧍 3D Human Mesh Reconstruction & Rendering</h3>
-<p>
-Led end-to-end reconstruction of human meshes using SMPL-X parametric models from video sequences.
-Designed geometry processing and rendering pipelines integrating PyTorch tensors, Trimesh mesh processing, and Pyrender visualization.
-Optimized computation to handle large motion sequences efficiently and implemented batch processing for multi-subject datasets.
-<br><a href="https://github.com/adullagayathri" target="_blank">View Repository →</a>
-</p>
-</div>
-
-<div class="card">
+<img src="ec.jpg" alt="E-Commerce Project" style="width:100%; border-radius:15px; margin-bottom:15px;">
 <h3>🛒 Role-Based E-Commerce Management System</h3>
-<p>
-Developed a full-stack backend system using Java OOP, JDBC, and MySQL.
-Implemented role-based access control, normalized schemas, and optimized transactional queries.
-Simulated realistic order lifecycles and inventory workflows.
-Enhanced system reliability and performance by modularizing backend components and optimizing queries.
-<br><a href="https://github.com/adullagayathri" target="_blank">View Repository →</a>
-</p>
+<p>Led the development of a multi-role e-commerce management platform using Java OOP, JDBC, and MySQL.
+I implemented Role-Based Access Control (RBAC) to manage admin, seller, and customer permissions.
+Built normalized database schemas and optimized SQL queries for transactions, inventory, and user management.
+Designed order lifecycle workflows, including cart, payment, and order tracking, simulating real-world e-commerce operations.
+Ensured system robustness through unit testing, error handling, and modular backend design. Demonstrated leadership by coordinating the full-stack integration and delivering a seamless demo experience.</p>
+<a href="https://github.com/adullagayathri" target="_blank">View Repository →</a>
 </div>
+<div class="card">
+  <img src="mnist.jpeg" alt="MNIST & CIFAR Project" style="width:100%; border-radius:15px; margin-bottom:15px;">
+  <h3>🔢 MNIST & CIFAR Image Classification Systems</h3>
+  <p>
+    I developed highly optimized convolutional neural network (CNN) pipelines to tackle two foundational image classification benchmarks: MNIST (handwritten digit recognition) and CIFAR‑10 (natural image classification).
+    
+    For **MNIST**, I engineered a model architecture with multiple convolutional and pooling layers, added batch normalization and dropout for regularization, and tuned hyperparameters (learning rate scheduling, optimizer selection) to maximize validation accuracy. I also built automated scripts for data preprocessing, augmentation (rotations, shifts, scaling), and training curve visualization — enabling clear diagnosis of under‑ and over‑fitting patterns. The workflow incorporated confusion matrices and mistake analysis to iteratively improve performance.  
+    🔗 <a href="https://github.com/adullagayathri/mnist" target="_blank">View MNIST Repo →</a>
 
+    For **CIFAR‑10**, I constructed a deeper CNN tailored for color image data with enhanced complexity, including data augmentation (horizontal flips, random crops, normalization), dropout layers to control overfitting, and learning rate schedulers to adapt optimization over epochs. I compared multiple architectures and tracked performance across accuracy, precision, recall, and F1‑score metrics. This project demonstrates robust model design and systematic evaluation on varied image datasets.  
+    🔗 <a href="https://github.com/adullagayathri/cifar" target="_blank">View CIFAR Repo →</a>
+  </p>
+</div>
 </div>
 </section>
 
@@ -207,11 +181,11 @@ Enhanced system reliability and performance by modularizing backend components a
 <section id="contact">
 <h2>Contact Me</h2>
 <p><strong>Address:</strong> Buffalo, New York</p>
-<p><strong>Phone:</strong> +1 (443) 253-4328</p>
+<p><strong>Phone:</strong> +1 (617)418-0803</p>
 <p><strong>Email:</strong> <a href="mailto:adulla.gayathri.18@gmail.com" style="color:#00e6e6">adulla.gayathri.18@gmail.com</a></p>
 <p><strong>GitHub:</strong> <a href="https://github.com/adullagayathri" style="color:#00e6e6">github.com/adullagayathri</a></p>
 <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/gayathri-adulla-924056216/" style="color:#00e6e6">linkedin.com/in/gayathri-adulla-924056216/</a></p>
-<a href="resume.pdf" class="btn">Download Resume</a>
+<a href="https://drive.google.com/file/d/1BRUpRg-eCQ0JfT3R6HCKb9Tz-5xp_XQA/view?usp=sharing" target="_blank" class="btn">Download Resume</a>
 </section>
 
 <footer>
@@ -219,15 +193,19 @@ Enhanced system reliability and performance by modularizing backend components a
 </footer>
 
 <script>
-// Scroll animation
-const sections = document.querySelectorAll('section');
-window.addEventListener('scroll', () => {
-sections.forEach(section => {
-  if(window.scrollY + window.innerHeight > section.offsetTop + 100){
-    section.classList.add('visible');
-  }
-});
-});
+// Fade-in on scroll
+const faders = document.querySelectorAll('.hero, .card');
+const appearOptions = {threshold:0.2, rootMargin:"0px 0px -50px 0px"};
+const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll){
+  entries.forEach(entry=>{
+    if(!entry.isIntersecting) return;
+    entry.target.classList.add('fade-in');
+    appearOnScroll.unobserve(entry.target);
+  });
+}, appearOptions);
+
+faders.forEach(fader => appearOnScroll.observe(fader));
 </script>
+
 </body>
 </html>
