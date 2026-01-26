@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gayathri Adullaga - Data Science Portfolio</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- CSS Styling -->
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Roboto', sans-serif; }
+    body { line-height: 1.6; background: #f4f4f9; color: #333; }
+    a { color: #3498db; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header { background: #2c3e50; color: white; padding: 60px 20px; text-align: center; }
+    header h1 { font-size: 3em; margin-bottom: 10px; }
+    header p { font-size: 1.2em; margin-top: 10px; }
+
+    section { padding: 60px 20px; max-width: 1000px; margin: auto; }
+    h2 { text-align: center; margin-bottom: 40px; color: #2c3e50; }
+
+    /* Cards */
+    .card { background: white; padding: 20px; margin: 20px 0; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    .card h3 { color: #3498db; margin-bottom: 10px; }
+    .card h4 { color: #555; margin-bottom: 10px; font-weight: 500; }
+    .card ul { list-style: disc; margin-left: 20px; margin-top: 10px; }
+
+    /* Projects grid */
+    .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+
+    /* Skills badges */
+    .badges img { margin: 5px 5px 5px 0; }
+
+    /* Footer / contact */
+    footer { text-align: center; padding: 30px 20px; background: #2c3e50; color: white; }
+    footer a { color: #f39c12; }
+
+    /* Responsive adjustments */
+    @media(max-width: 600px) {
+      header h1 { font-size: 2.2em; }
+      header p { font-size: 1em; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / About -->
+  <header>
+    <h1>Gayathri Adullaga</h1>
+    <p>Data Science & Machine Learning Professional | Python, PyTorch, SQL, Spark | AI Enthusiast</p>
+    <p>Building end-to-end ML and data solutions across FinTech, Healthcare, and Research</p>
+  </header>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <div class="card badges" style="text-align:center;">
+      <!-- Programming -->
+      <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+      <img src="https://img.shields.io/badge/R-276DC3?style=for-the-badge&logo=r&logoColor=white" alt="R">
+      <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white" alt="Java">
+      <img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" alt="C++">
+      <img src="https://img.shields.io/badge/SQL-00758F?style=for-the-badge&logo=mysql&logoColor=white" alt="SQL">
+      <!-- Libraries / ML -->
+      <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch">
+      <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" alt="TensorFlow">
+      <img src="https://img.shields.io/badge/Scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white" alt="Scikit-learn">
+      <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas">
+      <img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white" alt="NumPy">
+      <!-- Cloud / Tools -->
+      <img src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white" alt="AWS">
+      <img src="https://img.shields.io/badge/Databricks-FC6F26?style=for-the-badge&logo=databricks&logoColor=white" alt="Databricks">
+      <img src="https://img.shields.io/badge/Tableau-E97627?style=for-the-badge&logo=tableau&logoColor=white" alt="Tableau">
+      <img src="https://img.shields.io/badge/PowerBI-F2C80F?style=for-the-badge&logo=power-bi&logoColor=white" alt="PowerBI">
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <h2>Experience</h2>
+
+    <div class="card">
+      <h3>Graduate Research Assistant</h3>
+      <h4>University at Buffalo | Aug 2025 - Present</h4>
+      <ul>
+        <li>Reconstructed 3D human body meshes from video using SMPL-X and built CPU-optimized rendering pipelines (PyTorch, NumPy, Trimesh, Pyrender).</li>
+        <li>Developed Hugging Face visualization tool for motion analysis and multi-video comparison.</li>
+        <li>Automated structured model outputs into interpretable visual artifacts, reducing manual debugging and improving evaluation efficiency.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Decision Analytics Associate</h3>
+      <h4>ZS Associates, Pune, India | Jan 2023 - Jan 2024</h4>
+      <ul>
+        <li>Built ML models for drug sales forecasting (Scikit-learn, TensorFlow, PyTorch, R), improving accuracy by 20%.</li>
+        <li>Developed large-scale data pipelines using SQL, Spark, and Hadoop while ensuring data governance and secure VM workflows.</li>
+        <li>Performed advanced data analysis and visualization (Tableau, Power BI) and delivered executive-ready insights.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Data Intelligence Analyst</h3>
+      <h4>TresVista Analytics, Bangalore, India | Jan 2024 - Aug 2024</h4>
+      <ul>
+        <li>Automated financial ETL pipelines using Python, SQL, VBA, Spark/Hadoop on AWS/GCP, improving efficiency.</li>
+        <li>Built interactive dashboards (Power BI, Tableau), reducing manual reporting effort by 50%.</li>
+        <li>Collaborated in agile teams to design analytics solutions using statistical modeling and Scikit-learn.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="card">
+        <h3>Role-Based E-Commerce Management System</h3>
+        <p>Developed a multi-role e-commerce system using Java, OOP, MySQL, JDBC, and Java Swing with role-based access control, order lifecycle workflows, and modular backend design. Built normalized schemas and optimized SQL queries for transactions, inventory, and user management.</p>
+      </div>
+      <div class="card">
+        <h3>Multimodal Movie Genre Classification</h3>
+        <p>Built a multimodal deep learning model using DistilBERT + ResNet-18 (PyTorch, Hugging Face, Scikit-learn) for multi-label genre prediction. Implemented feature fusion, imbalance handling, F1-based evaluation; deployed via interactive web interface.</p>
+      </div>
+      <div class="card">
+        <h3>Partial Face Recognition Under Occlusion</h3>
+        <p>Designed a vision pipeline in Python, OpenCV, and Scikit-learn to identify individuals from partial facial regions. Combined HOG, SIFT, LBP, PCA features with SVM classification and cosine/Euclidean similarity for robust recognition under lighting, scale, and occlusion variations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education">
+    <h2>Education</h2>
+    <div class="card">
+      <h3>State University of New York at Buffalo</h3>
+      <p>Master of Engineering Science, Artificial Intelligence</p>
+      <p><strong>Relevant Coursework:</strong> Data Intensive Computing, Computer Vision, Data Structures & Algorithms, Data Models & Query Languages</p>
+    </div>
+    <div class="card">
+      <h3>Mahindra University</h3>
+      <p>Bachelor of Technology, Artificial Intelligence</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <div class="card" style="text-align:center;">
+      <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/adullagayathri">linkedin.com/in/adullagayathri</a></p>
+      <p>GitHub: <a href="https://github.com/adullagayathri">github.com/adullagayathri</a></p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 Gayathri Adullaga | Built with ❤️ using HTML & CSS
+  </footer>
+
+</body>
+</html>
