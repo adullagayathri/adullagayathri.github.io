@@ -94,77 +94,189 @@ and rigorous evaluation using domain-relevant metrics.</p>
 
 <div class="card">
 <h3>Graduate Research Assistant — University at Buffalo</h3>
-<p>Engineered a research-grade 3D human mesh reconstruction system using SMPL-X parametric modeling.
-Built CPU-optimized rendering pipelines with PyTorch, Trimesh, and Pyrender for large motion datasets.
-Developed tools converting NPZ model outputs into structured visual artifacts for analysis and evaluation.</p>
+<p>
+Led the engineering of a <b>research-grade 3D human mesh reconstruction pipeline</b> focused on translating parametric body model outputs into high-fidelity visual and analytical representations. Worked with the <b>SMPL-X parametric human body model</b> to reconstruct articulated 3D human meshes from pose, shape, and expression parameters.
+</p>
+
+<p>
+Designed an end-to-end geometry processing workflow integrating <b>PyTorch tensor pipelines</b> with <b>Trimesh</b> mesh manipulation and <b>Pyrender</b> physically based rendering. Implemented efficient CPU-optimized rendering strategies to process large motion sequence datasets without GPU dependency, enabling scalable experimentation and reproducibility.
+</p>
+
+<p>
+Built automated tools that converted raw <b>NPZ model parameter outputs</b> into structured mesh artifacts, vertex-normalized representations, and frame-wise rendered outputs. Introduced modular processing layers that separated parameter parsing, mesh generation, camera transformations, and lighting control — significantly improving maintainability and experimentation speed.
+</p>
+
+<p>
+Focused on performance optimization and system design: minimized memory overhead during batch mesh generation, vectorized tensor operations, and implemented pipeline parallelization. This work supported downstream research in computer vision, motion analysis, and digital human modeling.
+</p>
 </div>
+
 
 <div class="card">
 <h3>Decision Analytics Associate — ZS Associates</h3>
-<p>Developed ML forecasting systems for pharmaceutical sales using ensemble learning and neural networks.
-Engineered distributed data pipelines using SQL, Spark, and Hadoop for high-volume healthcare analytics.
-Built BI dashboards translating predictive insights into executive decision-making tools.</p>
+<p>
+Worked in advanced healthcare analytics, developing <b>machine learning forecasting systems</b> for pharmaceutical sales using patient-level and market data. Built predictive models using ensemble learning, gradient boosting, and neural networks to estimate drug demand across geographic and demographic segments.
+</p>
+
+<p>
+Engineered distributed data pipelines using <b>SQL, Spark, and Hadoop</b> to process large-scale healthcare datasets. Designed feature engineering frameworks incorporating temporal trends, prescription behavior, physician segmentation, and regional dynamics to improve model predictive power.
+</p>
+
+<p>
+Led analytical model evaluation using cross-validation, error decomposition, and scenario-based stress testing to ensure model stability under real-world variability. Delivered interpretable insights to stakeholders through feature importance analysis and business impact simulations.
+</p>
+
+<p>
+Built executive-level <b>BI dashboards and analytical reports</b> that translated predictive outputs into actionable business strategies. Collaborated cross-functionally with consulting teams, domain experts, and clients to align modeling outputs with commercial decision-making and market strategy.
+</p>
 </div>
+
 
 <div class="card">
 <h3>Data Intelligence Analyst — TresVista Analytics</h3>
-<p>Automated financial ETL pipelines on AWS/GCP using Python and Spark.
-Designed reporting dashboards and statistical models improving operational efficiency by 50%.</p>
+<p>
+Automated end-to-end financial data workflows by designing <b>ETL pipelines</b> across AWS and GCP environments using Python, SQL, and distributed processing tools. Built data ingestion, transformation, and validation layers that ensured accuracy and scalability for large financial datasets.
+</p>
+
+<p>
+Developed statistical analysis models and reporting systems that streamlined financial data integration and reduced manual processing time by nearly 50%. Implemented structured data cleaning pipelines handling missing values, outlier detection, and consistency checks across multi-source datasets.
+</p>
+
+<p>
+Designed interactive dashboards and automated reporting tools that enabled decision-makers to track KPIs, financial trends, and risk indicators in real time. Applied strong data modeling practices to ensure traceability, reproducibility, and audit readiness.
+</p>
+
+<p>
+Collaborated with stakeholders to translate business questions into data solutions, balancing engineering rigor with business usability — a core strength bridging analytics and decision intelligence.
+</p>
 </div>
 
 </div>
 </section>
+
 
 <!-- PROJECTS -->
 <section id="projects">
 <h2>Major Technical Projects</h2>
 <div class="cards">
 
-<div class="card">
-<img src="mm.jpeg" alt="Project Image" style="width:100%; border-radius:15px; margin-bottom:15px;">
-<h3>🎬 Multimodal Movie Genre Classification</h3>
-<p>Designed a multimodal deep learning system integrating DistilBERT text embeddings with ResNet-18 visual features. Led the full pipeline: data preprocessing, feature fusion, model training, evaluation using macro/micro F1 metrics, and deployment via a web interface. Addressed class imbalance with weighted loss functions, implemented dropout and normalization, and presented results with an interactive demo showing predictions on test data.</p>
-<a href="https://github.com/adullagayathri/mutlimodal-movie-genre-prediction" target="_blank">View Repository →</a>
-</div>
+  <!-- Multimodal Movie Genre Classification -->
+  <div class="card">
+    <img src="mm.jpeg" alt="Multimodal Movie Genre Classification Project" style="width:100%; border-radius:15px; margin-bottom:15px;">
+    <h3>🎬 Multimodal Movie Genre Classification</h3>
+    <p>
+      Led the development of a <b>multimodal deep learning system</b> integrating <b>DistilBERT text embeddings</b> and <b>ResNet-18 visual features</b> to predict movie genres from posters and descriptions. Managed the end-to-end pipeline including data preprocessing, feature extraction, fusion, model training, evaluation, and deployment via an interactive web interface.
+    </p>
+    <p>
+      Engineered a robust <b>data preprocessing and augmentation workflow</b> for both modalities: tokenization, padding, and embedding for text; resizing, normalization, and augmentation (flips, rotations, color jitter) for images. Addressed class imbalance with weighted BCE loss and implemented dropout and batch normalization to enhance generalization.
+    </p>
+    <p>
+      Designed a <b>dual-branch late fusion architecture</b>, aligning textual and visual latent features before concatenation. Conducted hyperparameter tuning for learning rates, batch size, and optimizer choice. Evaluated performance using <b>macro/micro F1 scores, accuracy, and confusion matrices</b>, and visualized predictions interactively to demonstrate model effectiveness.
+    </p>
+    <p>
+      This project demonstrates expertise in <b>multimodal deep learning, NLP embeddings, computer vision, feature fusion, class imbalance handling, and deployable AI systems</b>.
+    </p>
+    <a href="https://github.com/adullagayathri/multimodal-movie-genre-prediction" target="_blank">View Repository →</a>
+  </div>
 
-<div class="card">
-<img src="bb.jpeg" alt="Project Image" style="width:100%; border-radius:15px; margin-bottom:15px;">
-<h3>👁 Partial Face Recognition Under Occlusion</h3>
-<p>Engineered a hybrid classical CV pipeline robust to facial occlusion. Extracted HOG, SIFT, and LBP descriptors, applied PCA for dimensionality reduction, and trained SVM classifiers. Implemented cosine and Euclidean similarity metrics for robust matching under varying lighting and scale.</p>
-<a href="https://github.com/adullagayathri/Partial_Face_Recognition" target="_blank">View Repository →</a>
-</div>
+  <!-- Role-Based E-Commerce Management -->
+  <div class="card">
+    <img src="ec.jpg" alt="E-Commerce Management Project" style="width:100%; border-radius:15px; margin-bottom:15px;">
+    <h3>🛒 Role-Based E-Commerce Management System</h3>
+    <p>
+      Led the development of a <b>multi-role e-commerce management platform</b> using <b>Java OOP, JDBC, and MySQL</b>. Architected the system to handle distinct user roles — admin, seller, and customer — with <b>Role-Based Access Control (RBAC)</b>, ensuring secure and permission-driven access across the platform.
+    </p>
+    <p>
+      Designed and implemented <b>normalized relational database schemas</b> in 3NF, optimized SQL queries for transactional consistency, inventory management, and user data operations. Engineered full <b>order lifecycle workflows</b>, including product catalog, shopping cart, payment simulation, and order tracking, accurately simulating real-world e-commerce business processes.
+    </p>
+    <p>
+      Ensured <b>system robustness and maintainability</b> through modular backend design, unit testing, and comprehensive error handling. Coordinated <b>full-stack integration</b> and delivered a seamless demo experience, highlighting effective leadership in bridging design, development, and deployment.
+    </p>
+    <p>
+      This project demonstrates expertise in <b>backend system design, relational databases, secure role management, workflow automation, and enterprise-level software engineering</b>.
+    </p>
+    <a href="https://github.com/adullagayathri/Role-Based_E-Commerce_Management_System" target="_blank">View Repository →</a>
+  </div>
 
-<div class="card">
-<img src="br.jpeg" alt="Project Image" style="width:100%; border-radius:15px; margin-bottom:15px;">
-<h3>🧠 Brain Tumour Detection</h3>
-<p>Developed a CNN-based MRI classification pipeline. Applied medical image preprocessing, augmentation, and regularization. Evaluated using sensitivity, specificity, and ROC-AUC for clinically relevant performance. Optimized the workflow to handle large medical datasets efficiently.</p>
-<a href="https://github.com/adullagayathri/braintumour" target="_blank">View Repository →</a>
-</div>
-<div class="card">
-<img src="ec.jpg" alt="E-Commerce Project" style="width:100%; border-radius:15px; margin-bottom:15px;">
-<h3>🛒 Role-Based E-Commerce Management System</h3>
-<p>Led the development of a multi-role e-commerce management platform using Java OOP, JDBC, and MySQL.
-I implemented Role-Based Access Control (RBAC) to manage admin, seller, and customer permissions.
-Built normalized database schemas and optimized SQL queries for transactions, inventory, and user management.
-Designed order lifecycle workflows, including cart, payment, and order tracking, simulating real-world e-commerce operations.
-Ensured system robustness through unit testing, error handling, and modular backend design. Demonstrated leadership by coordinating the full-stack integration and delivering a seamless demo experience.</p>
-<a href="https://github.com/adullagayathri/Role-Based_E-Commerce_Management_System" target="_blank">View Repository →</a>
-</div>
-<div class="card">
-  <img src="mnist.jpeg" alt="MNIST & CIFAR Project" style="width:100%; border-radius:15px; margin-bottom:15px;">
-  <h3>🔢 MNIST & CIFAR Image Classification Systems</h3>
-  <p>
-    I developed highly optimized convolutional neural network (CNN) pipelines to tackle two foundational image classification benchmarks: MNIST (handwritten digit recognition) and CIFAR‑10 (natural image classification).
-    
-    For **MNIST**, I engineered a model architecture with multiple convolutional and pooling layers, added batch normalization and dropout for regularization, and tuned hyperparameters (learning rate scheduling, optimizer selection) to maximize validation accuracy. I also built automated scripts for data preprocessing, augmentation (rotations, shifts, scaling), and training curve visualization — enabling clear diagnosis of under‑ and over‑fitting patterns. The workflow incorporated confusion matrices and mistake analysis to iteratively improve performance.  
-    🔗 <a href="https://github.com/adullagayathri/mnist" target="_blank">View MNIST Repo →</a>
+  <!-- Partial Face Recognition -->
+  <div class="card">
+    <img src="bb.jpeg" alt="Partial Face Recognition Project" style="width:100%; border-radius:15px; margin-bottom:15px;">
+    <h3>👁 Partial Face Recognition Under Occlusion</h3>
+    <p>
+      Developed a <b>hybrid classical computer vision pipeline</b> capable of accurately recognizing faces even under heavy occlusion. Led the project from feature extraction, dimensionality reduction, to supervised classification, ensuring robustness against variations in lighting, pose, and partial visibility.
+    </p>
+    <p>
+      Extracted multiple complementary features: <b>HOG, SIFT, and LBP</b>, capturing texture, keypoints, and local patterns. Applied <b>PCA</b> for dimensionality reduction to enhance computational efficiency while preserving discriminative information. Designed a supervised <b>SVM classifier</b> and tuned kernel parameters for optimal recognition performance.
+    </p>
+    <p>
+      Implemented similarity scoring using <b>cosine and Euclidean distances</b>, improving matching accuracy under diverse conditions. Conducted extensive testing on datasets with occluded faces and demonstrated high reliability in both identification and verification tasks.
+    </p>
+    <p>
+      This project highlights skills in <b>feature engineering, classical CV techniques, pattern recognition, and occlusion-robust biometric systems</b>.
+    </p>
+    <a href="https://github.com/adullagayathri/Partial_Face_Recognition" target="_blank">View Repository →</a>
+  </div>
 
-    For **CIFAR‑10**, I constructed a deeper CNN tailored for color image data with enhanced complexity, including data augmentation (horizontal flips, random crops, normalization), dropout layers to control overfitting, and learning rate schedulers to adapt optimization over epochs. I compared multiple architectures and tracked performance across accuracy, precision, recall, and F1‑score metrics. This project demonstrates robust model design and systematic evaluation on varied image datasets.  
-    🔗 <a href="https://github.com/adullagayathri/cifar" target="_blank">View CIFAR Repo →</a>
-  </p>
-</div>
+  <!-- Deepfake Detection -->
+  <div class="card">
+    <img src="deepfake.jpg" alt="Deepfake Detection Project" style="width:100%; border-radius:15px; margin-bottom:15px;">
+    <h3>🧠 Deepfake Detection using β-Variational Autoencoder (β-VAE)</h3>
+    <p>
+      Designed and implemented a <b>hybrid deepfake detection framework</b> combining <b>unsupervised representation learning</b> with <b>supervised latent-space classification</b>. The system learns intrinsic facial structure using a <b>β-Variational Autoencoder (β-VAE)</b> and converts the learned latent embeddings into discriminative features for high-accuracy fake image detection.
+    </p>
+    <p>
+      Constructed a dataset of <b>real human faces (FFHQ)</b> and <b>synthetic faces generated via Stable Diffusion</b>, capturing realistic texture, lighting, and pose variations. Built a data preprocessing pipeline including resizing, normalization, and tensor conversion to ensure consistent model training.
+    </p>
+    <p>
+      Engineered the β-VAE architecture using <b>PyTorch</b> with convolutional encoders, a <b>128-dimensional latent embedding space</b>, and transposed convolution decoders. Employed a <b>β value of 4</b> to enforce disentanglement and strong latent regularization, preventing posterior collapse while preserving meaningful structural features.
+    </p>
+    <p>
+      Performed multi-stage experimentation:
+      <br>• Unsupervised KL-divergence thresholding for anomaly detection  
+      <br>• Latent feature extraction for supervised modeling  
+      <br>• Logistic Regression classification on standardized embeddings  
+      <br>• t-SNE visualization to analyze nonlinear class separation
+    </p>
+    <p>
+      Achieved <b>98% classification accuracy</b>, <b>ROC-AUC of 0.997</b>, and strong precision/recall balance, demonstrating that structured latent spaces enable robust deepfake detection even when synthetic images exhibit high visual realism.
+    </p>
+    <p>
+      This project highlights expertise in <b>generative modeling, representation learning, anomaly detection, and computer vision security applications</b>.
+    </p>
+    <a href="https://github.com/adullagayathri/DeepFake_Detection" target="_blank">View Repository →</a>
+  </div>
+
+  <!-- DMQL E-Commerce Database -->
+  <div class="card">
+    <img src="dmql.jpg" alt="DMQL E-Commerce Database Project" style="width:100%; border-radius:15px; margin-bottom:15px;">
+    <h3>🛒 Scalable E-Commerce Data Management System </h3>
+    <p>
+      Designed and implemented a <b>fully normalized relational data management system</b> for an enterprise-style E-Commerce platform as part of an advanced <b>Data Models & Query Languages (DMQL)</b> project. The system models real-world transactional workflows including customers, products, orders, regional hierarchies, and product categories, simulating production-grade retail data architecture.
+    </p>
+    <p>
+      Led the <b>database schema design</b> process using normalization principles up to <b>Third Normal Form (3NF)</b>, eliminating redundancy and enforcing referential integrity through primary-foreign key relationships. Constructed structured tables including:
+      Customer, Product, ProductCategory, Region, Country, and OrderDetail — enabling scalable query performance across multi-table joins.
+    </p>
+    <p>
+      Developed a <b>data ingestion pipeline</b> that parses large tab-separated raw datasets and programmatically populates relational tables using <b>SQLite3</b>. Engineered optimized SQL queries involving complex joins, aggregations, filtering, and grouping to support analytical workloads such as:
+      <br>• Regional sales analysis  
+      <br>• Customer purchase behavior  
+      <br>• Category-wise revenue trends  
+      <br>• Order frequency distributions
+    </p>
+    <p>
+      Implemented modular query functions and automated validation workflows in Python to ensure correctness, performance, and reproducibility. The system demonstrates strong understanding of:
+      <b>database design, indexing strategies, query optimization, transactional data modeling, and analytical SQL engineering</b>.
+    </p>
+    <p>
+      This project reflects practical expertise in <b>data engineering foundations</b> — bridging structured storage, data transformation, and analytical querying, which are core to building scalable data platforms.
+    </p>
+    <a href="https://github.com/Jayachandragg/DMQL-FINAL-PROJECT-E-COMMERCE" target="_blank">View Repository →</a>
+  </div>
+
 </div>
 </section>
+
 
 <!-- SKILLS -->
 <section id="skills">
