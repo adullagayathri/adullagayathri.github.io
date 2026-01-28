@@ -15,32 +15,114 @@ h1,h2,h3 {font-weight:700;}
 h2 {text-align:center; margin-bottom:35px; font-size:36px; color:#00e6e6;}
 p {line-height:1.8; margin-bottom:16px; color:#e6f7ff;}
 a {text-decoration:none;}
-.btn {display:inline-block; margin-top:20px; padding:12px 28px; background:#00e6e6; color:black; border-radius:30px; font-weight:600; transition:.3s;}
-.btn:hover {transform:scale(1.05);}
+.btn {
+  display:inline-block; 
+  margin-top:20px; 
+  padding:12px 28px; 
+  background:#00e6e6; 
+  color:black; 
+  border-radius:30px; 
+  font-weight:600; 
+  transition:.3s; 
+  box-shadow:0 0 15px rgba(0,230,230,0.4);
+}
+.btn:hover {transform:scale(1.05); box-shadow:0 0 25px rgba(0,255,255,0.8);}
+
+/* ---------------- NAVBAR ---------------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: rgba(15,32,39,0.85);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10%;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+.navbar .logo { font-weight: 700; font-size: 22px; color:#00e6e6; }
+.nav-links { display: flex; gap: 20px; list-style: none; }
+.nav-links li a {
+  color:white;
+  text-decoration:none;
+  font-weight:500;
+  padding:5px 10px;
+  border-radius:5px;
+  transition:0.3s;
+}
+.nav-links li a:hover, .nav-links li a.active {
+  color:#0b0b0b;
+  background:#00e6e6;
+  transform: scale(1.05);
+}
 
 /* ---------------- HERO ---------------- */
-.hero {height:100vh; display:flex; align-items:center; justify-content:space-between; opacity:0; transform:translateY(20px); transition:1s;}
+.hero {
+  height:100vh; 
+  display:flex; 
+  align-items:center; 
+  justify-content:space-between; 
+  opacity:0; 
+  transform:translateY(20px); 
+  transition:1s;
+}
 .hero-text {max-width:650px;}
-.hero-text h1 {font-size:50px;}
-.hero-text h3 {margin:15px 0; color:#00e6e6;}
-.hero img {width:300px; border-radius:50%; box-shadow:0 0 45px rgba(0,255,255,0.6);}
+.hero-text h1 {font-size:50px; animation: slideIn 1s ease-out forwards; opacity:0;}
+.hero-text h3 {margin:15px 0; color:#00e6e6; animation: fadeIn 1.2s ease-out forwards; opacity:0;}
+.hero img {width:300px; border-radius:50%; box-shadow:0 0 45px rgba(0,255,255,0.6); animation: scaleUp 1.2s ease-out forwards; opacity:0;}
+@keyframes slideIn {0%{transform:translateY(50px); opacity:0;}100%{transform:translateY(0); opacity:1;}}
+@keyframes fadeIn {0%{opacity:0;}100%{opacity:1;}}
+@keyframes scaleUp {0%{opacity:0; transform:scale(0.8);}100%{opacity:1; transform:scale(1);}}
 
 /* ---------------- CARDS ---------------- */
 .cards {display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:30px;}
-.card {background:rgba(255,255,255,0.05); padding:25px; border-radius:18px; backdrop-filter:blur(10px); transition:.5s; opacity:0; transform:translateY(20px);}
-.card:hover {transform:translateY(-12px) scale(1.02); box-shadow:0 0 35px rgba(0,255,255,0.5);}
+.card {
+  background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.08));
+  padding:25px; 
+  border-radius:20px; 
+  backdrop-filter: blur(15px); 
+  box-shadow:0 0 20px rgba(0,255,255,0.2);
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  opacity:0; 
+  transform:translateY(30px);
+}
+.card:hover {
+  transform: translateY(-15px) scale(1.03);
+  box-shadow:0 0 40px rgba(0,255,255,0.5);
+  background: linear-gradient(145deg, rgba(0,230,230,0.15), rgba(0,230,230,0.2));
+}
 .card a {color:#00e6e6; font-weight:600;}
 
 /* ---------------- SKILLS ---------------- */
-.skills span {display:inline-block; margin:10px; padding:10px 20px; background:#00e6e6; color:black; border-radius:25px; font-size:14px; transition:.3s; cursor:pointer;}
-.skills span:hover {transform:scale(1.2); background:#00ffff;}
+.skills span {
+  display:inline-block; 
+  margin:10px; 
+  padding:10px 20px; 
+  background:#00e6e6; 
+  color:black; 
+  border-radius:25px; 
+  font-size:14px; 
+  transition:.3s;
+  cursor:pointer; 
+  box-shadow: 0 0 10px rgba(0,230,230,0.3);
+}
+.skills span:hover {
+  transform:scale(1.2); 
+  background:#00ffff; 
+  box-shadow: 0 0 20px rgba(0,255,255,0.6);
+}
+
+/* ---------------- FADE IN ON SCROLL ---------------- */
+.fade-in {opacity:1 !important; transform:translateY(0) !important; transition:1s ease-out;}
 
 /* ---------------- FOOTER ---------------- */
 footer {text-align:center; padding:40px; background:#00000055; margin-top:40px;}
 
-/* ---------------- FADE IN ANIMATION ---------------- */
-.fade-in {opacity:1 !important; transform:translateY(0) !important;}
-</style>
+/* ---------------- SMOOTH SCROLL ---------------- */
+html { scroll-behavior: smooth; }
+
 </head>
 
 <body>
