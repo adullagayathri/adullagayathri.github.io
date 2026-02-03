@@ -9,31 +9,57 @@
 <style>
 /* ---------------- GENERAL ---------------- */
 * {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif;}
-body {background:linear-gradient(135deg,#0f2027,#203a43,#2c5364); color:white; scroll-behavior:smooth;}
+body {
+  background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
+  color: #e2e8f0;
+  scroll-behavior: smooth;
+}
+
 section {padding:60px 10%;}
 h1,h2,h3 {font-weight:700;}
-h2 {text-align:center; margin-bottom:35px; font-size:36px; color:#00e6e6;}
+h2 {
+  text-align: center;
+  margin-bottom: 35px;
+  font-size: 34px;
+  color: #60a5fa;  /* soft professional blue */
+}
+
 p {line-height:1.8; margin-bottom:16px; color:#e6f7ff;}
 a {text-decoration:none;}
-.btn {
-  display:inline-block; 
-  margin-top:20px; 
-  padding:12px 28px; 
-  background:#00e6e6; 
-  color:black; 
-  border-radius:30px; 
-  font-weight:600; 
-  transition:.3s; 
-  box-shadow:0 0 15px rgba(0,230,230,0.4);
+/* ---------------- LINKS ---------------- */
+a {
+  color: #93c5fd;   /* soft blue */
+  transition: 0.2s;
 }
-.btn:hover {transform:scale(1.05); box-shadow:0 0 25px rgba(0,255,255,0.8);}
+
+a:hover {
+  color: #bfdbfe;   /* lighter on hover */
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 28px;
+  background: #3b82f6;
+  color: white;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: .3s;
+  box-shadow: none;
+}
+
+.btn:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+}
+
 
 /* ---------------- NAVBAR ---------------- */
 .navbar {
   position: sticky;
   top: 0;
   width: 100%;
-  background: rgba(15,32,39,0.85);
+  background: rgba(15, 23, 42, 0.9);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -41,7 +67,7 @@ a {text-decoration:none;}
   z-index: 1000;
   backdrop-filter: blur(10px);
 }
-.navbar .logo { font-weight: 700; font-size: 22px; color:#00e6e6; }
+.navbar .logo { font-weight: 700; font-size: 22px; color: #60a5fa; }
 .nav-links { display: flex; gap: 20px; list-style: none; }
 .nav-links li a {
   color:white;
@@ -52,8 +78,8 @@ a {text-decoration:none;}
   transition:0.3s;
 }
 .nav-links li a:hover, .nav-links li a.active {
-  color:#0b0b0b;
-  background:#00e6e6;
+  color: white;
+  background: #3b82f6;
   transform: scale(1.05);
 }
 
@@ -71,7 +97,13 @@ a {text-decoration:none;}
 }
 .hero-text {max-width:650px;}
 .hero-text h1 {font-size:50px; animation: slideIn 1s ease-out forwards; opacity:0;}
-.hero-text h3 {margin:15px 0; color:#00e6e6; animation: fadeIn 1.2s ease-out forwards; opacity:0;}
+.hero-text h3 { color:#93c5fd; }
+
+.card a,
+#projects .card a {
+  color:#93c5fd;
+}
+
 .hero img {width:300px; border-radius:50%; box-shadow:0 0 45px rgba(0,255,255,0.6); animation: scaleUp 1.2s ease-out forwards; opacity:0;}
 @keyframes slideIn {0%{transform:translateY(50px); opacity:0;}100%{transform:translateY(0); opacity:1;}}
 @keyframes fadeIn {0%{opacity:0;}100%{opacity:1;}}
@@ -97,20 +129,17 @@ a {text-decoration:none;}
 }
 
 .card {
-  background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.08));
-  padding: 25px; 
-  border-radius: 20px; 
-  backdrop-filter: blur(15px); 
-  box-shadow: 0 0 20px rgba(0,255,255,0.2);
-  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
-  opacity: 0; 
-  transform: translateY(30px);
+  background: rgba(255,255,255,0.05);
+  padding: 25px;
+  border-radius: 18px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  transition: 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-15px) scale(1.03);
-  box-shadow: 0 0 40px rgba(0,255,255,0.5);
-  background: linear-gradient(145deg, rgba(0,230,230,0.15), rgba(0,230,230,0.2));
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.35);
 }
 
 .card a {color:#00e6e6; font-weight:600;}
@@ -163,17 +192,17 @@ a {text-decoration:none;}
   display:inline-block; 
   margin:10px; 
   padding:10px 20px; 
-  background:#00e6e6; 
-  color:black; 
+  background: #475569;
+  color: #f1f5f9;
   border-radius:25px; 
   font-size:14px; 
   transition:.3s;
   cursor:pointer; 
-  box-shadow: 0 0 10px rgba(0,230,230,0.3);
+  box-shadow: none;
 }
 .skills span:hover {
-  transform:scale(1.2); 
-  background:#00ffff; 
+  background: #64748b;
+  transform: none;
   box-shadow: 0 0 20px rgba(0,255,255,0.6);
 }
 
