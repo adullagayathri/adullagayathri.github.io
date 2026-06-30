@@ -3,548 +3,636 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gayathri Adulla | Data Engineer & AI Systems Scientist</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+<title>Gayathri Adulla — AI Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-/* ---------------- GENERAL ---------------- */
-* {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif;}
-body {
-  background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
-  color: #e2e8f0;
-  scroll-behavior: smooth;
-}
 
-section {padding:60px 10%;}
-h1,h2,h3 {font-weight:700;}
-h2 {
-  text-align: center;
-  margin-bottom: 35px;
-  font-size: 34px;
-  color: #60a5fa;  /* soft professional blue */
-}
-
-p {line-height:1.8; margin-bottom:16px; color:#e6f7ff;}
-a {text-decoration:none;}
-/* ---------------- LINKS ---------------- */
-a {
-  color: #93c5fd;   /* soft blue */
-  transition: 0.2s;
-}
-
-a:hover {
-  color: #bfdbfe;   /* lighter on hover */
-}
-
-.btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 28px;
-  background: #3b82f6;
-  color: white;
-  border-radius: 30px;
-  font-weight: 600;
-  transition: .3s;
-  box-shadow: none;
-}
-
-.btn:hover {
-  background: #2563eb;
-  transform: translateY(-2px);
-}
-
-
-/* ---------------- NAVBAR ---------------- */
-.navbar {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  background: rgba(15, 23, 42, 0.9);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 10%;
-  z-index: 1000;
-  backdrop-filter: blur(10px);
-}
-.navbar .logo { font-weight: 700; font-size: 22px; color: #60a5fa; }
-.nav-links { display: flex; gap: 20px; list-style: none; }
-.nav-links li a {
-  color:white;
-  text-decoration:none;
-  font-weight:500;
-  padding:5px 10px;
-  border-radius:5px;
-  transition:0.3s;
-}
-.nav-links li a:hover, .nav-links li a.active {
-  color: white;
-  background: #3b82f6;
-  transform: scale(1.05);
-}
-
-/* ---------------- HERO ---------------- */
-.hero {
-  height:100vh; 
-  display:flex; 
-  align-items:center; 
-  justify-content:space-between; 
-  opacity:0; 
-  transform:translateY(20px); 
-  transition:1s;
-  flex-wrap:wrap;
-  gap:20px;
-}
-.hero-text {max-width:650px;}
-.hero-text h1 {font-size:50px; animation: slideIn 1s ease-out forwards; opacity:0;}
-.hero-text h3 { color:#93c5fd; }
-
-.card a,
-#projects .card a {
-  color:#93c5fd;
-}
-
-.hero img {
-  width: 300px;
-  border-radius: 50%;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
-  border: 3px solid rgba(255, 255, 255, 0.08);
-  animation: scaleUp 1.2s ease-out forwards;
-  opacity: 0;
-}
-
-@keyframes slideIn {0%{transform:translateY(50px); opacity:0;}100%{transform:translateY(0); opacity:1;}}
-@keyframes fadeIn {0%{opacity:0;}100%{opacity:1;}}
-@keyframes scaleUp {0%{opacity:0; transform:scale(0.8);}100%{opacity:1; transform:scale(1);}}
-
-/* ---------------- CARDS ---------------- */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 cards per row on large screens */
-  gap: 30px;
-}
-
-@media (max-width:1200px) {
-  .cards {
-    grid-template-columns: repeat(2, 1fr); /* 2 per row on medium screens */
+  :root{
+    --bg: #FBFAF7;
+    --bg-soft: #F4F2ED;
+    --ink: #181C24;
+    --ink-soft: #4A4F58;
+    --muted: #8A8E94;
+    --accent: #2C5F63;       /* deep teal — lens / precision */
+    --accent-soft: #DCE7E6;
+    --copper: #AD703D;       /* sparing highlight — metrics */
+    --line: #E2DFD6;
+    --white: #FFFFFF;
+    --radius: 2px;
+    --maxw: 1080px;
   }
-}
 
-@media (max-width:800px) {
-  .cards {
-    grid-template-columns: 1fr; /* 1 per row on small screens */
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
   }
-}
+  h1,h2,h3,h4{
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin: 0;
+    color: var(--ink);
+  }
+  a{ color: var(--accent); text-decoration: none; }
+  .mono{ font-family: 'IBM Plex Mono', monospace; }
+  .wrap{ max-width: var(--maxw); margin: 0 auto; padding: 0 32px; }
+  img{ max-width: 100%; display:block; }
 
-.card {
-  background: rgba(255,255,255,0.05);
-  padding: 25px;
-  border-radius: 18px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-  transition: 0.3s;
-}
+  /* ---------- corner-bracket motif (CV bounding box) ---------- */
+  .bracket{
+    position: relative;
+  }
+  .bracket::before, .bracket::after{
+    content:"";
+    position:absolute;
+    width:18px; height:18px;
+    border: 2px solid var(--accent);
+    opacity: 0;
+    transition: opacity .35s ease, transform .35s ease;
+  }
+  .bracket::before{ top:-8px; left:-8px; border-right:none; border-bottom:none; transform: translate(4px,4px); }
+  .bracket::after{ bottom:-8px; right:-8px; border-left:none; border-top:none; transform: translate(-4px,-4px); }
+  .bracket:hover::before, .bracket:hover::after,
+  .bracket.in-view::before, .bracket.in-view::after{
+    opacity:1; transform: translate(0,0);
+  }
 
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.35);
-}
+  /* ---------- nav ---------- */
+  nav{
+    position: sticky; top:0; z-index:50;
+    background: rgba(251,250,247,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height: 64px;
+  }
+  nav .brand{ font-family:'Fraunces',serif; font-size: 1.05rem; font-weight:600; }
+  nav .brand .dot{ color: var(--accent); }
+  nav ul{ display:flex; gap: 28px; list-style:none; margin:0; padding:0; }
+  nav a{ color: var(--ink-soft); font-size: 0.84rem; letter-spacing:.03em; text-transform:uppercase; }
+  nav a:hover{ color: var(--accent); }
+  .nav-toggle{ display:none; }
 
-.card a {color:#00e6e6; font-weight:600;}
+  /* ---------- hero ---------- */
+  header.hero{
+    padding: 120px 0 80px;
+    position: relative;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.3fr 0.9fr;
+    gap: 56px;
+    align-items:center;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display:flex; align-items:center; gap:10px;
+    margin-bottom: 18px;
+  }
+  .eyebrow::before{
+    content:""; width:8px; height:8px; background: var(--accent); border-radius:50%;
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+  h1.name{
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    line-height: 1.04;
+    margin-bottom: 18px;
+  }
+  .tagline{
+    font-size: 1.12rem;
+    color: var(--ink-soft);
+    max-width: 540px;
+    margin-bottom: 30px;
+  }
+  .hero-cta{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom: 44px;}
+  .btn{
+    font-family:'IBM Plex Mono',monospace;
+    font-size: 0.82rem;
+    padding: 13px 22px;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    border-radius: var(--radius);
+    transition: all .2s ease;
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn.primary{ background: var(--ink); color: var(--bg); }
+  .btn.primary:hover{ background: var(--accent); border-color: var(--accent); }
+  .btn:not(.primary):hover{ border-color: var(--accent); color: var(--accent); }
 
-/* ---------------- PROJECTS CARDS ---------------- */
-#projects .cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-}
+  .readout{
+    display:flex; gap: 28px; flex-wrap: wrap;
+    border-top: 1px solid var(--line);
+    padding-top: 22px;
+  }
+  .readout .stat{ min-width: 110px; }
+  .readout .stat .num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 1.5rem; font-weight:500; color: var(--accent);
+    display:block;
+  }
+  .readout .stat .label{
+    font-size: 0.74rem; color: var(--muted); text-transform:uppercase; letter-spacing:.05em;
+  }
 
-@media (max-width:1200px) {
-  #projects .cards { grid-template-columns: repeat(2, 1fr); }
-}
+  .hero-photo{
+    position:relative;
+    border-radius: var(--radius);
+  }
+  .hero-photo img{
+    width:100%; aspect-ratio: 4/5; object-fit:cover;
+    filter: grayscale(8%) contrast(1.02);
+    border: 1px solid var(--line);
+  }
+  .scan-frame{
+    position:absolute; inset:-10px;
+    pointer-events:none;
+  }
+  .scan-frame::before, .scan-frame::after{
+    content:""; position:absolute; width:26px; height:26px; border: 2px solid var(--accent);
+  }
+  .scan-frame::before{ top:0; left:0; border-right:none; border-bottom:none; }
+  .scan-frame::after{ bottom:0; right:0; border-left:none; border-top:none; }
+  .scanline{
+    position:absolute; left:0; right:0; height:2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    top:0; opacity:.85;
+    animation: scan 3.2s ease-in-out infinite;
+  }
+  @keyframes scan{
+    0%{ top:2%; opacity:0; }
+    8%{ opacity:.85; }
+    50%{ top:96%; opacity:.85; }
+    58%{ opacity:0; }
+    100%{ top:96%; opacity:0; }
+  }
+  .photo-caption{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 0.7rem; color: var(--muted);
+    margin-top: 10px; display:flex; justify-content:space-between;
+  }
 
-@media (max-width:800px) {
-  #projects .cards { grid-template-columns: 1fr; }
-}
+  /* ---------- section shell ---------- */
+  section{ padding: 88px 0; border-top: 1px solid var(--line); }
+  .section-head{ margin-bottom: 48px; max-width: 640px; }
+  .section-head .eyebrow{ margin-bottom: 12px; }
+  .section-head h2{ font-size: clamp(1.7rem, 3vw, 2.2rem); }
+  .section-head p{ color: var(--ink-soft); margin-top: 12px; }
 
-#projects .card {
-  background: rgba(255,255,255,0.06);
-  padding: 25px;
-  border-radius: 18px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  opacity: 0;
-  transform: translateY(30px);
-}
+  /* ---------- about ---------- */
+  .about-body{ max-width: 720px; font-size: 1.02rem; color: var(--ink-soft); }
+  .about-body p{ margin: 0 0 18px; }
+  .about-body strong{ color: var(--ink); font-weight:600; }
 
-#projects .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
-}
+  /* ---------- education ---------- */
+  .edu-grid{ display:grid; gap: 24px; }
+  .edu-card{
+    display:grid; grid-template-columns: 140px 1fr; gap: 24px;
+    padding: 22px 0; border-bottom: 1px solid var(--line);
+  }
+  .edu-card:last-child{ border-bottom:none; }
+  .edu-card .dates{ font-family:'IBM Plex Mono',monospace; font-size: 0.8rem; color: var(--accent); }
+  .edu-card h3{ font-size: 1.15rem; margin-bottom: 4px; }
+  .edu-card .school{ color: var(--ink-soft); font-weight:500; margin-bottom: 6px; }
+  .edu-card .extra{ font-size: 0.88rem; color: var(--muted); }
 
-#projects .card a {
-  color: #93c5fd;
-  font-weight: 600;
-}
+  /* ---------- experience timeline ---------- */
+  .timeline{ position:relative; padding-left: 28px; border-left: 1px solid var(--line); }
+  .tl-item{ position: relative; padding-bottom: 52px; }
+  .tl-item:last-child{ padding-bottom:0; }
+  .tl-item::before{
+    content:""; position:absolute; left:-33px; top:4px;
+    width:9px; height:9px; background: var(--bg); border:2px solid var(--accent); border-radius:50%;
+  }
+  .tl-item.current::before{ background: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+  .tl-head{ display:flex; flex-wrap:wrap; align-items:baseline; gap:10px; margin-bottom:6px; }
+  .tl-head h3{ font-size: 1.22rem; }
+  .tl-tag{
+    font-family:'IBM Plex Mono', monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:.06em;
+    background: var(--accent-soft); color: var(--accent); padding: 3px 9px; border-radius: 20px;
+  }
+  .tl-meta{ font-family:'IBM Plex Mono',monospace; font-size: 0.8rem; color: var(--muted); margin-bottom: 14px; }
+  .tl-meta .sep{ margin: 0 8px; }
+  .tl-body{ color: var(--ink-soft); max-width: 700px; }
+  .tl-body ul{ margin: 10px 0 0; padding-left: 18px; }
+  .tl-body li{ margin-bottom: 8px; }
+  .tl-stats{ display:flex; gap: 22px; margin-top: 16px; flex-wrap:wrap; }
+  .tl-stats .s{ font-family:'IBM Plex Mono',monospace; font-size: 0.78rem; color: var(--copper); }
+  .tl-stats .s b{ font-size: 1rem; }
 
-#projects .card a:hover {
-  color: #bfdbfe;
-}
+  /* ---------- projects ---------- */
+  .proj-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+  .proj-card{
+    background: var(--white);
+    border: 1px solid var(--line);
+    transition: border-color .25s ease, transform .25s ease;
+    display:flex; flex-direction:column;
+  }
+  .proj-card:hover{ border-color: var(--accent); transform: translateY(-3px); }
+  .proj-img{ aspect-ratio: 16/10; overflow:hidden; background: var(--bg-soft); }
+  .proj-img img{ width:100%; height:100%; object-fit:cover; }
+  .proj-body{ padding: 22px 24px 26px; display:flex; flex-direction:column; flex:1; }
+  .proj-eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:0.68rem; color: var(--accent);
+    text-transform:uppercase; letter-spacing:.07em; margin-bottom:8px;
+  }
+  .proj-card h3{ font-size: 1.18rem; margin-bottom:10px; }
+  .proj-card p{ color: var(--ink-soft); font-size: 0.93rem; flex:1; }
+  .proj-stack{ display:flex; flex-wrap:wrap; gap:6px; margin: 14px 0; }
+  .proj-stack span{
+    font-family:'IBM Plex Mono',monospace; font-size: 0.68rem; color: var(--ink-soft);
+    background: var(--bg-soft); padding: 3px 8px; border-radius: 20px;
+  }
+  .proj-link{ font-family:'IBM Plex Mono',monospace; font-size: 0.8rem; font-weight:500; }
+  .proj-link::after{ content:" →"; }
+  .proj-card.full{ grid-column: 1 / -1; }
+  .proj-card.full .proj-img{ aspect-ratio: auto; height: 320px; }
 
+  /* ---------- skills ---------- */
+  .skills-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--line); }
+  .skill-col{ padding: 26px 24px; border-right: 1px solid var(--line); }
+  .skill-col:nth-child(3n){ border-right:none; }
+  .skill-col h4{
+    font-family:'IBM Plex Mono', monospace; font-size: 0.74rem; text-transform:uppercase;
+    letter-spacing:.06em; color: var(--accent); margin-bottom: 14px;
+  }
+  .skill-col ul{ margin:0; padding:0; list-style:none; }
+  .skill-col li{
+    font-size: 0.92rem; color: var(--ink-soft);
+    padding: 7px 0; border-bottom: 1px solid var(--line);
+  }
+  .skill-col li:last-child{ border-bottom:none; }
 
+  /* ---------- contact / footer ---------- */
+  footer{ padding: 80px 0 50px; border-top: 1px solid var(--line); }
+  .contact-grid{ display:grid; grid-template-columns: 1.2fr 1fr; gap: 50px; align-items:start; }
+  footer h2{ font-size: clamp(1.8rem, 3.4vw, 2.4rem); margin-bottom: 18px; }
+  footer p.lead{ color: var(--ink-soft); max-width: 460px; margin-bottom: 28px; }
+  .contact-list{ list-style:none; margin:0; padding:0; }
+  .contact-list li{
+    font-family:'IBM Plex Mono', monospace; font-size: 0.88rem;
+    padding: 12px 0; border-bottom: 1px solid var(--line);
+    display:flex; justify-content:space-between; color: var(--ink-soft);
+  }
+  .contact-list li span:first-child{ color: var(--muted); text-transform:uppercase; font-size:0.7rem; letter-spacing:.06em; }
+  .contact-list li a{ color: var(--ink); }
+  .contact-list li a:hover{ color: var(--accent); }
+  .foot-bottom{
+    margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    font-family:'IBM Plex Mono',monospace; font-size: 0.72rem; color: var(--muted);
+  }
 
-/* ---------------- SKILLS ---------------- */
-.skills {display:flex; flex-wrap:wrap; justify-content:center;}
-.skills span {
-  display:inline-block; 
-  margin:10px; 
-  padding:10px 20px; 
-  background: #475569;
-  color: #f1f5f9;
-  border-radius:25px; 
-  font-size:14px; 
-  transition:.3s;
-  cursor:pointer; 
-  box-shadow: none;
-}
-.skills span:hover {
-  background: #64748b;
-  transform: none;
-  box-shadow: 0 0 20px rgba(0,255,255,0.6);
-}
+  @media (max-width: 880px){
+    .hero-grid{ grid-template-columns: 1fr; }
+    .hero-photo{ max-width: 320px; }
+    .proj-grid{ grid-template-columns: 1fr; }
+    .skills-grid{ grid-template-columns: 1fr; }
+    .skill-col{ border-right:none; border-bottom: 1px solid var(--line); }
+    .edu-card{ grid-template-columns: 1fr; }
+    .contact-grid{ grid-template-columns: 1fr; }
+    nav ul{ display:none; }
+  }
 
-/* ---------------- FADE IN ---------------- */
-.fade-in {opacity:1 !important; transform:translateY(0) !important; transition:1s ease-out;}
-
-/* ---------------- FOOTER ---------------- */
-footer {text-align:center; padding:40px; background:#00000055; margin-top:40px;}
-
-/* ---------------- RESPONSIVE ---------------- */
-@media(max-width:900px){.hero{flex-direction:column; text-align:center;}.hero img{margin-top:20px; width:250px;}}
+  @media (prefers-reduced-motion: reduce){
+    .scanline{ animation: none; display:none; }
+    html{ scroll-behavior:auto; }
+  }
 </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-  <div class="logo">Gayathri Adulla</div>
-  <ul class="nav-links">
-    <li><a href="#home" class="active">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+<nav>
+  <div class="wrap">
+    <div class="brand">Gayathri Adulla<span class="dot">.</span></div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-text">
-    <h1>Gayathri Adulla</h1>
-    <h3>Designing Scalable Data Systems & Production ML Pipelines</h3>
-    <p>Data Engineer and Data Scientist with 2+ years of experience building distributed data platforms,
-      deep learning systems, and research-grade AI pipelines across fintech, healthcare analytics,
-      and academic computer vision research.</p>
-    <a href="#projects" class="btn">View Technical Work</a>
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">AI Engineer · Buffalo, NY</div>
+      <h1 class="name">Gayathri<br>Adulla</h1>
+      <p class="tagline">I build computer vision and multimodal AI systems that turn raw pixels and signals into production decisions — from dashcam telemetry to 3D human reconstruction.</p>
+      <div class="hero-cta">
+        <a class="btn primary" href="#projects">View Technical Work</a>
+        <a class="btn" href="https://drive.google.com/file/d/18C1Idqz57xC-xbwvCurjMggupCNyyAGq/view?usp=sharing" target="_blank" rel="noopener">Download Résumé</a>
+      </div>
+      <div class="readout">
+        <div class="stat"><span class="num">90%</span><span class="label">Detection accuracy</span></div>
+        <div class="stat"><span class="num">98%</span><span class="label">Deepfake classification</span></div>
+        <div class="stat"><span class="num">300K+</span><span class="label">Parcels indexed</span></div>
+        <div class="stat"><span class="num">0.997</span><span class="label">ROC-AUC</span></div>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="scan-frame"><div class="scanline"></div></div>
+      <img src="profile_photo.jpg" alt="Gayathri Adulla">
+      <div class="photo-caption">
+        <span>SUBJECT_001</span><span>CONF: 0.98</span>
+      </div>
+    </div>
   </div>
-  <img src="profile_photo.jpg" alt="Gayathri Photo">
-</section>
+</header>
 
-<!-- ABOUT -->
 <section id="about">
-<h2>About Me</h2>
-<p>I design and build scalable, cloud-native AI systems that integrate large-scale data engineering with advanced machine learning. My work spans end-to-end pipelines — from raw data ingestion, distributed processing, and feature engineering, to model training, evaluation, deployment, and monitoring.</p>
-
-<p>Experienced in <b>Spark, Hadoop, SQL, Python, Redis, Docker, FastAPI, AWS, and GCP</b>, I architect production-grade systems capable of processing millions of records per day and orchestrating concurrent AI workflows. I specialize in <b>distributed microservices, asynchronous agent orchestration, and fault-tolerant pipelines</b>, ensuring reproducibility and real-time operational insights.</p>
-
-<p>On the AI front, I develop <b>deep learning and computer vision solutions</b>, including multi-modal systems, generative models, and 3D human mesh reconstruction pipelines. I focus on combining rigorous engineering with research-grade experimentation to deliver robust, high-impact results.</p>
-
-<p>My approach is systems-driven: I emphasize <b>modular architecture, automation, performance optimization, observability, and metrics-driven evaluation</b> to build AI and data solutions that scale, generalize, and maintain production reliability.</p>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">About</div>
+      <h2>Systems thinking, applied to vision and language</h2>
+    </div>
+    <div class="about-body">
+      <p>I'm an <strong>AI Engineer</strong> with hands-on experience building computer vision, multimodal AI, and machine learning systems that solve real-world problems — spanning research, internships, and production deployments that turn large volumes of image, video, and structured data into scalable AI solutions.</p>
+      <p>At <strong>Third Estate Analytics</strong>, I build computer vision pipelines that analyze dashcam imagery, detect housing code violations, and automate address-level reporting for municipal stakeholders. I joined the project through a University at Buffalo industry collaboration and was invited to continue as an AI Engineer after successfully delivering the initial system.</p>
+      <p>Previously, I worked on distributed data engineering, feature pipelines, and ML infrastructure during internships at TresVista and ZS Associates, and as a Graduate Research Assistant at the University at Buffalo, where I developed 3D human reconstruction and rendering pipelines using SMPL-X and PyTorch.</p>
+      <p>My technical interests sit at the intersection of <strong>computer vision, multimodal &amp; vision-language models, generative modeling, and ML infrastructure</strong> — built with Python, PyTorch, TensorFlow, Docker, Kubernetes, Spark, FastAPI, Redis, AWS, and GCP.</p>
+      <p>I'm currently seeking full-time AI Engineer / Machine Learning Engineer roles where I can build scalable, production-grade AI systems.</p>
+    </div>
+  </div>
 </section>
 
-<!-- EDUCATION -->
 <section id="education">
-<h2>Education</h2>
-<div class="cards">
-<div class="card">
-<h3>Master of Engineering Science — Artificial Intelligence</h3>
-<p><strong>University at Buffalo</strong> (2025-2026)</p>
-<p>Relevant Coursework: Data Intensive Computing, Computer Vision, Data Structures & Algorithms, Data Models & Query Languages</p>
-</div>
-<div class="card">
-<h3>Bachelor of Technology — Artificial Intelligence</h3>
-<p><strong>Mahindra University</strong> (2020-2024)</p>
-</div>
-</div>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Education</div>
+      <h2>Academic foundation</h2>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="dates mono">JAN 2025 –<br>MAY 2026</div>
+        <div>
+          <h3>M.S. in Artificial Intelligence</h3>
+          <div class="school">University at Buffalo</div>
+          <div class="extra">Coursework: Data-Intensive Computing · Computer Vision · Data Structures &amp; Algorithms · Data Models &amp; Query Languages</div>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="dates mono">SEP 2024 –<br>DEC 2024</div>
+        <div>
+          <h3>M.S. in Management Information Systems</h3>
+          <div class="school">Northeastern University</div>
+          <div class="extra">Object-Oriented Modeling · Data Science</div>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="dates mono">2020 –<br>2024</div>
+        <div>
+          <h3>B.Tech in Artificial Intelligence</h3>
+          <div class="school">Mahindra University</div>
+          <div class="extra">Deep Learning · Artificial Intelligence</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section id="experience">
-<h2>Professional Experience</h2>
-<div class="cards">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Experience</div>
+      <h2>From research to production</h2>
+    </div>
 
-<div class="card">
-<h3>Graduate Research Assistant — University at Buffalo</h3>
-<p>
-Led the engineering of a <b>research-grade 3D human mesh reconstruction pipeline</b> focused on translating parametric body model outputs into high-fidelity visual and analytical representations. Worked with the <b>SMPL-X parametric human body model</b> to reconstruct articulated 3D human meshes from pose, shape, and expression parameters.
-</p>
+    <div class="timeline">
 
-<p>
-Designed an end-to-end geometry processing workflow integrating <b>PyTorch tensor pipelines</b> with <b>Trimesh</b> mesh manipulation and <b>Pyrender</b> physically based rendering. Implemented efficient CPU-optimized rendering strategies to process large motion sequence datasets without GPU dependency, enabling scalable experimentation and reproducibility.
-</p>
+      <div class="tl-item current">
+        <div class="tl-head">
+          <h3>AI Engineer</h3>
+          <span class="tl-tag">Current</span>
+        </div>
+        <div class="tl-meta">Third Estate Analytics <span class="sep">·</span> Buffalo, NY (Hybrid) <span class="sep">·</span> Jan 2026 – Present</div>
+        <div class="tl-body">
+          <ul>
+            <li>Architected a production computer vision pipeline converting GoPro dashcam footage into structured, address-resolved housing code violation reports — processing GPMF telemetry, SSIM-based keyframe extraction, and Gemini Vision VLM classification.</li>
+            <li>Indexed and mapped flagged image frames against Erie County's 300,000-parcel dataset to pull verified owner records.</li>
+            <li>Designed and integrated a Human-in-the-Loop (HITL) validation UI within Salesforce (LWC, Apex), establishing an active learning loop where uncertain boundary-box anomalies are queued for automated retraining.</li>
+            <li>Replaced legacy manual workflows, reducing property inspection lifecycles by transforming neighborhood drive-through data into end-to-end, address-tagged reports.</li>
+          </ul>
+          <div class="tl-stats">
+            <span class="s"><b>90%</b> violation detection</span>
+            <span class="s"><b>90%</b> address resolution</span>
+          </div>
+        </div>
+      </div>
 
-<p>
-Built automated tools that converted raw <b>NPZ model parameter outputs</b> into structured mesh artifacts, vertex-normalized representations, and frame-wise rendered outputs. Introduced modular processing layers that separated parameter parsing, mesh generation, camera transformations, and lighting control — significantly improving maintainability and experimentation speed.
-</p>
+      <div class="tl-item">
+        <div class="tl-head"><h3>Graduate Research Assistant</h3></div>
+        <div class="tl-meta">University at Buffalo <span class="sep">·</span> Buffalo, NY (Hybrid) <span class="sep">·</span> Aug 2025 – Dec 2025</div>
+        <div class="tl-body">
+          <ul>
+            <li>Reconstructed full 3D human body meshes from monocular video using SMPL-X motion parameters; built a CPU-optimized rendering pipeline (PyTorch, NumPy, Trimesh, Pyrender) for scalable mesh visualization.</li>
+            <li>Developed a web-based visualization system (Gradio, Hugging Face Spaces) integrating NPZ motion data and multiple video outputs for comparing motion sequence variants.</li>
+            <li>Engineered distributed simulation testbeds using Docker container clusters and Redis caches, establishing the architectural foundation for multi-agent scale evaluation.</li>
+          </ul>
+        </div>
+      </div>
 
-<p>
-Focused on performance optimization and system design: minimized memory overhead during batch mesh generation, vectorized tensor operations, and implemented pipeline parallelization. This work supported downstream research in computer vision, motion analysis, and digital human modeling.
-</p>
-</div>
+      <div class="tl-item">
+        <div class="tl-head"><h3>AI Infrastructure Engineering Intern</h3></div>
+        <div class="tl-meta">TresVista <span class="sep">·</span> Bengaluru, India (On-site) <span class="sep">·</span> Jan 2024 – Aug 2024</div>
+        <div class="tl-body">
+          <ul>
+            <li>Automated financial ETL pipelines using Python, SQL, VBA, and Apache Spark/Hadoop on AWS and GCP, improving large-scale dataset processing efficiency.</li>
+            <li>Built interactive dashboards with Power BI and Tableau (Pandas, NumPy), reducing manual reporting effort by 50%.</li>
+            <li>Implemented scalable data versioning pipelines and feature extraction layers, validating data security isolation across staging cycles for multi-client deep learning models.</li>
+          </ul>
+        </div>
+      </div>
 
+      <div class="tl-item">
+        <div class="tl-head"><h3>Machine Learning Engineering Intern</h3></div>
+        <div class="tl-meta">ZS Associates <span class="sep">·</span> Pune, India (On-site) <span class="sep">·</span> Jan 2023 – Dec 2023</div>
+        <div class="tl-body">
+          <ul>
+            <li>Developed and evaluated LSTM time-series forecasting models (Scikit-learn, TensorFlow, PyTorch), raising target macro-precision by 18.4% over an unoptimized baseline.</li>
+            <li>Built scalable data pipelines (SQL, Spark, Hadoop) to process large healthcare datasets with secure, governed VM-based workflows.</li>
+            <li>Translated complex modeling results into actionable insights for clients via Pandas, NumPy, SciPy, Tableau, and Power BI.</li>
+          </ul>
+        </div>
+      </div>
 
-<div class="card">
-<h3>Decision Analytics Associate — ZS Associates</h3>
-<p>
-Worked in advanced healthcare analytics, developing <b>machine learning forecasting systems</b> for pharmaceutical sales using patient-level and market data. Built predictive models using ensemble learning, gradient boosting, and neural networks to estimate drug demand across geographic and demographic segments.
-</p>
-
-<p>
-Engineered distributed data pipelines using <b>SQL, Spark, and Hadoop</b> to process large-scale healthcare datasets. Designed feature engineering frameworks incorporating temporal trends, prescription behavior, physician segmentation, and regional dynamics to improve model predictive power.
-</p>
-
-<p>
-Led analytical model evaluation using cross-validation, error decomposition, and scenario-based stress testing to ensure model stability under real-world variability. Delivered interpretable insights to stakeholders through feature importance analysis and business impact simulations.
-</p>
-
-<p>
-Built executive-level <b>BI dashboards and analytical reports</b> that translated predictive outputs into actionable business strategies. Collaborated cross-functionally with consulting teams, domain experts, and clients to align modeling outputs with commercial decision-making and market strategy.
-</p>
-</div>
-
-
-<div class="card">
-<h3>Data Intelligence Analyst — TresVista Analytics</h3>
-<p>
-Automated end-to-end financial data workflows by designing <b>ETL pipelines</b> across <b>AWS and GCP</b> environments using <b>Python, SQL,</b> and distributed processing tools. Built data ingestion, transformation, and validation layers that ensured accuracy and scalability for large financial datasets.
-</p>
-
-<p>
-Developed statistical analysis models and reporting systems that streamlined financial data integration and reduced manual processing time by nearly 50%. Implemented structured data cleaning pipelines handling missing values, outlier detection, and consistency checks across multi-source datasets.
-</p>
-
-<p>
-Designed interactive dashboards and automated reporting tools that enabled decision-makers to track KPIs, financial trends, and risk indicators in real time. Applied strong data modeling practices to ensure traceability, reproducibility, and audit readiness.
-</p>
-
-<p>
-Collaborated with stakeholders to translate business questions into data solutions, balancing engineering rigor with business usability — a core strength bridging analytics and decision intelligence.
-</p>
-</div>
-
-</div>
+    </div>
+  </div>
 </section>
 
-
-<!-- PROJECTS -->
 <section id="projects">
-<h2>Major Technical Projects</h2>
-<div class="cards">
-  <!-- AI Agent Microservice Platform -->
-  <div class="card">
-    <img src="agent.png" alt="AI Agent Microservice Platform Project" style="width:100%; border-radius:15px; margin-bottom:15px;">
-    
-    <h3>🤖 AI Agent Microservice Platform</h3>
-  
-    <p>
-      Designed and implemented a <b>cloud-native distributed runtime</b> for orchestrating autonomous AI agents using 
-      <b>FastAPI, Docker, and Redis</b>. Built a containerized microservice architecture where a central orchestrator 
-      schedules and dispatches tasks to independent agent workers through a Redis-backed message queue.
-    </p>
-  
-    <p>
-      Engineered modular components including a <b>task scheduler, health monitoring service, retry logic, and structured logging system</b>, enabling reliable multi-agent coordination and fault tolerance. Implemented asynchronous task execution and scalable agent workers capable of processing concurrent workloads.
-    </p>
-  
-    <p>
-      Developed a simulation framework that launches <b>50+ concurrent agents</b> to evaluate system scalability and runtime orchestration behavior. The platform demonstrates core distributed systems concepts including <b>message queues, microservices architecture, containerized deployment, and agent orchestration</b>.
-    </p>
-  
-    <p>
-      This project highlights expertise in <b>AI systems engineering, distributed computing, microservice design, container orchestration, and scalable agent-based architectures</b>.
-    </p>
-  
-    <a href="https://github.com/gayathrineu/AI-Agent-Microservice-Platform" target="_blank">
-      View Repository →
-    </a>
-  </div>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Selected Work</div>
+      <h2>Technical projects</h2>
+      <p>A selection of research and applied builds across computer vision, multimodal learning, and distributed AI systems.</p>
+    </div>
 
-  <!-- Multimodal Movie Genre Classification -->
-  <div class="card">
-    <img src="mm.jpeg" alt="Multimodal Movie Genre Classification Project" style="width:100%; border-radius:15px; margin-bottom:15px;">
-    <h3>🎬 Multimodal Movie Genre Classification</h3>
-    <p>
-      Led the development of a <b>multimodal deep learning system</b> integrating <b>DistilBERT text embeddings</b> and <b>ResNet-18 visual features</b> to predict movie genres from posters and descriptions. Managed the end-to-end pipeline including data preprocessing, feature extraction, fusion, model training, evaluation, and deployment via an interactive web interface.
-    </p>
-    <p>
-      Engineered a robust <b>data preprocessing and augmentation workflow</b> for both modalities: tokenization, padding, and embedding for text; resizing, normalization, and augmentation (flips, rotations, color jitter) for images. Addressed class imbalance with weighted BCE loss and implemented dropout and batch normalization to enhance generalization.
-    </p>
-    <p>
-      Designed a <b>dual-branch late fusion architecture</b>, aligning textual and visual latent features before concatenation. Conducted hyperparameter tuning for learning rates, batch size, and optimizer choice. Evaluated performance using <b>macro/micro F1 scores, accuracy, and confusion matrices</b>, and visualized predictions interactively to demonstrate model effectiveness.
-    </p>
-    <p>
-      This project demonstrates expertise in <b>multimodal deep learning, NLP embeddings, computer vision, feature fusion, class imbalance handling, and deployable AI systems</b>.
-    </p>
-    <a href="https://github.com/adullagayathri/multimodal-movie-genre-prediction" target="_blank">View Repository →</a>
-  </div>
+    <div class="proj-grid">
 
-  <!-- Role-Based E-Commerce Management -->
-  <div class="card">
-    <img src="ec.jpg" alt="E-Commerce Management Project" style="width:100%; border-radius:15px; margin-bottom:15px;">
-    <h3>🛒 Role-Based E-Commerce Management System</h3>
-    <p>
-      Led the development of a <b>multi-role e-commerce management platform</b> using <b>Java OOP, JDBC, and MySQL</b>. Architected the system to handle distinct user roles — admin, seller, and customer — with <b>Role-Based Access Control (RBAC)</b>, ensuring secure and permission-driven access across the platform.
-    </p>
-    <p>
-      Designed and implemented <b>normalized relational database schemas</b> in 3NF, optimized SQL queries for transactional consistency, inventory management, and user data operations. Engineered full <b>order lifecycle workflows</b>, including product catalog, shopping cart, payment simulation, and order tracking, accurately simulating real-world e-commerce business processes.
-    </p>
-    <p>
-      Ensured <b>system robustness and maintainability</b> through modular backend design, unit testing, and comprehensive error handling. Coordinated <b>full-stack integration</b> and delivered a seamless demo experience, highlighting effective leadership in bridging design, development, and deployment.
-    </p>
-    <p>
-      This project demonstrates expertise in <b>backend system design, relational databases, secure role management, workflow automation, and enterprise-level software engineering</b>.
-    </p>
-    <a href="https://github.com/adullagayathri/Role-Based_E-Commerce_Management_System" target="_blank">View Repository →</a>
-  </div>
+      <div class="proj-card full">
+        <div class="proj-img"><img src="dd.jpeg" alt="Deepfake detection project"></div>
+        <div class="proj-body">
+          <div class="proj-eyebrow">Generative Modeling · AI Security</div>
+          <h3>Deepfake Detection using β-Variational Autoencoder</h3>
+          <p>Hybrid detection framework combining unsupervised latent-space representation learning with supervised classification. Trained on FFHQ real faces and Stable Diffusion–generated synthetic faces, using KL-divergence anomaly detection and a logistic regression classifier on 128-D latent embeddings.</p>
+          <div class="proj-stack">
+            <span>PyTorch</span><span>VAEs</span><span>Scikit-learn</span><span>t-SNE</span><span>Stable Diffusion</span>
+          </div>
+          <div class="tl-stats" style="margin-bottom:14px;">
+            <span class="s"><b>98%</b> accuracy</span>
+            <span class="s"><b>0.997</b> ROC-AUC</span>
+          </div>
+          <a class="proj-link" href="https://github.com/adullagayathri/Deepfake_Detection" target="_blank" rel="noopener">View repository</a>
+        </div>
+      </div>
 
-  <!-- Partial Face Recognition -->
-  <div class="card">
-    <img src="bb.jpeg" alt="Partial Face Recognition Project" style="width:100%; border-radius:15px; margin-bottom:15px;">
-    <h3>👁 Partial Face Recognition Under Occlusion</h3>
-    <p>
-      Developed a <b>hybrid classical computer vision pipeline</b> capable of accurately recognizing faces even under heavy occlusion. Led the project from feature extraction, dimensionality reduction, to supervised classification, ensuring robustness against variations in lighting, pose, and partial visibility.
-    </p>
-    <p>
-      Extracted multiple complementary features: <b>HOG, SIFT, and LBP</b>, capturing texture, keypoints, and local patterns. Applied <b>PCA</b> for dimensionality reduction to enhance computational efficiency while preserving discriminative information. Designed a supervised <b>SVM classifier</b> and tuned kernel parameters for optimal recognition performance.
-    </p>
-    <p>
-      Implemented similarity scoring using <b>cosine and Euclidean distances</b>, improving matching accuracy under diverse conditions. Conducted extensive testing on datasets with occluded faces and demonstrated high reliability in both identification and verification tasks.
-    </p>
-    <p>
-      This project highlights skills in <b>feature engineering, classical CV techniques, pattern recognition, and occlusion-robust biometric systems</b>.
-    </p>
-    <a href="https://github.com/adullagayathri/Partial_Face_Recognition_Under_Occlusion" target="_blank">View Repository →</a>
-  </div>
+      <div class="proj-card">
+        <div class="proj-img"><img src="mm.jpeg" alt="Multimodal movie genre classification"></div>
+        <div class="proj-body">
+          <div class="proj-eyebrow">Multimodal Learning</div>
+          <h3>Multimodal Movie Genre Classification</h3>
+          <p>Dual-branch fusion model combining DistilBERT text embeddings with ResNet-18 visual features to predict multi-label movie genres from posters and plot overviews, deployed with a live interactive demo.</p>
+          <div class="proj-stack"><span>PyTorch</span><span>DistilBERT</span><span>ResNet-18</span></div>
+          <a class="proj-link" href="https://github.com/adullagayathri/multimodal-movie-genre-prediction" target="_blank" rel="noopener">View repository</a>
+        </div>
+      </div>
 
-  <!-- Deepfake Detection -->
-  <div class="card">
-    <img src="dd.jpeg" alt="Deepfake Detection Project" style="width:100%; border-radius:15px; margin-bottom:15px;">
-    <h3>🧠 Deepfake Detection using β-Variational Autoencoder (β-VAE)</h3>
-    <p>
-      Designed and implemented a <b>hybrid deepfake detection framework</b> combining <b>unsupervised representation learning</b> with <b>supervised latent-space classification</b>. The system learns intrinsic facial structure using a <b>β-Variational Autoencoder (β-VAE)</b> and converts the learned latent embeddings into discriminative features for high-accuracy fake image detection.
-    </p>
-    <p>
-      Constructed a dataset of <b>real human faces (FFHQ)</b> and <b>synthetic faces generated via Stable Diffusion</b>, capturing realistic texture, lighting, and pose variations. Built a data preprocessing pipeline including resizing, normalization, and tensor conversion to ensure consistent model training.
-    </p>
-    <p>
-      Engineered the β-VAE architecture using <b>PyTorch</b> with convolutional encoders, a <b>128-dimensional latent embedding space</b>, and transposed convolution decoders. Employed a <b>β value of 4</b> to enforce disentanglement and strong latent regularization, preventing posterior collapse while preserving meaningful structural features.
-    </p>
-    <p>
-      Performed multi-stage experimentation:
-      <br>• Unsupervised KL-divergence thresholding for anomaly detection  
-      <br>• Latent feature extraction for supervised modeling  
-      <br>• Logistic Regression classification on standardized embeddings  
-      <br>• t-SNE visualization to analyze nonlinear class separation
-    </p>
-    <p>
-      Achieved <b>98% classification accuracy</b>, <b>ROC-AUC of 0.997</b>, and strong precision/recall balance, demonstrating that structured latent spaces enable robust deepfake detection even when synthetic images exhibit high visual realism.
-    </p>
-    <p>
-      This project highlights expertise in <b>generative modeling, representation learning, anomaly detection, and computer vision security applications</b>.
-    </p>
-    <a href="https://github.com/adullagayathri/DeepFake_Detection" target="_blank">View Repository →</a>
-  </div>
+      <div class="proj-card">
+        <div class="proj-img"><img src="agent.png" alt="AI agent microservice platform"></div>
+        <div class="proj-body">
+          <div class="proj-eyebrow">Distributed Systems · MLOps</div>
+          <h3>AI Agent Microservice Platform</h3>
+          <p>Containerized runtime orchestrating 50+ concurrent autonomous AI agents via a FastAPI orchestrator and Redis message queue, with health checks, retry logic, and structured logging.</p>
+          <div class="proj-stack"><span>FastAPI</span><span>Docker</span><span>Redis</span></div>
+          <a class="proj-link" href="https://github.com/adullagayathri/AI-Agent-Microservice-Platform" target="_blank" rel="noopener">View repository</a>
+        </div>
+      </div>
 
-  <!-- DMQL E-Commerce Database -->
-  <div class="card">
-    <img src="dmql.jpeg" alt="DMQL E-Commerce Database Project" style="width:100%; border-radius:15px; margin-bottom:15px;">
-    <h3>🛒 Scalable E-Commerce Data Management System </h3>
-    <p>
-      Designed and implemented a <b>fully normalized relational data management system</b> for an enterprise-style E-Commerce platform as part of an advanced <b>Data Models & Query Languages (DMQL)</b> project. The system models real-world transactional workflows including customers, products, orders, regional hierarchies, and product categories, simulating production-grade retail data architecture.
-    </p>
-    <p>
-      Led the <b>database schema design</b> process using normalization principles up to <b>Third Normal Form (3NF)</b>, eliminating redundancy and enforcing referential integrity through primary-foreign key relationships. Constructed structured tables including:
-      Customer, Product, ProductCategory, Region, Country, and OrderDetail — enabling scalable query performance across multi-table joins.
-    </p>
-    <p>
-      Developed a <b>data ingestion pipeline</b> that parses large tab-separated raw datasets and programmatically populates relational tables using <b>SQLite3</b>. Engineered optimized SQL queries involving complex joins, aggregations, filtering, and grouping to support analytical workloads such as:
-      <br>• Regional sales analysis  
-      <br>• Customer purchase behavior  
-      <br>• Category-wise revenue trends  
-      <br>• Order frequency distributions
-    </p>
-    <p>
-      Implemented modular query functions and automated validation workflows in Python to ensure correctness, performance, and reproducibility. The system demonstrates strong understanding of:
-      <b>database design, indexing strategies, query optimization, transactional data modeling, and analytical SQL engineering</b>.
-    </p>
-    <p>
-      This project reflects practical expertise in <b>data engineering foundations</b> — bridging structured storage, data transformation, and analytical querying, which are core to building scalable data platforms.
-    </p>
-    <a href="https://github.com/Jayachandragg/DMQL-FINAL-PROJECT-E-COMMERCE" target="_blank">View Repository →</a>
-  </div>
+      <div class="proj-card">
+        <div class="proj-img"><img src="bb.jpeg" alt="Partial face recognition under occlusion"></div>
+        <div class="proj-body">
+          <div class="proj-eyebrow">Classical Computer Vision</div>
+          <h3>Partial Face Recognition Under Occlusion</h3>
+          <p>Hybrid feature-engineering pipeline (HOG, SIFT, LBP) with PCA dimensionality reduction and SVM classification, designed to identify individuals from incomplete or occluded facial features.</p>
+          <div class="proj-stack"><span>OpenCV</span><span>SVM</span><span>PCA</span></div>
+          <a class="proj-link" href="https://github.com/adullagayathri/Partial_Face_Recognition_Under_Occlusion" target="_blank" rel="noopener">View repository</a>
+        </div>
+      </div>
 
-</div>
+      <div class="proj-card">
+        <div class="proj-img"><img src="ec.jpg" alt="Role-based e-commerce management system"></div>
+        <div class="proj-body">
+          <div class="proj-eyebrow">Software Engineering</div>
+          <h3>Role-Based E-Commerce Management System</h3>
+          <p>Java desktop application with role-based access control across Admin, Warehouse, Delivery, and Fraud Analyst dashboards, backed by a normalized MySQL schema.</p>
+          <div class="proj-stack"><span>Java</span><span>Swing</span><span>MySQL</span></div>
+          <a class="proj-link" href="https://github.com/adullagayathri/Role-Based_E-Commerce_Management_System" target="_blank" rel="noopener">View repository</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
 
-
-<!-- TECHNICAL SKILLS -->
 <section id="skills">
-  <h2>Technical Skills</h2>
-
-  <p><strong>Programming & Scripting:</strong> Python (asyncio, threading), SQL, Java, Bash/Shell</p>
-
-  <p><strong>Data Engineering & Distributed Systems:</strong> ETL Pipelines, Data Modeling, Distributed Workflows, Spark, Hadoop, Redis, Kafka, Docker, Docker Compose, FastAPI, Airflow, SQLite</p>
-
-  <p><strong>Machine Learning & AI:</strong> PyTorch, TensorFlow, Scikit-learn, Deep Learning, Computer Vision, NLP, Generative Models, Representation Learning, Multi-Modal AI, 3D Human Mesh Reconstruction</p>
-
-  <p><strong>Cloud & Platforms:</strong> AWS (S3, EC2, Lambda), GCP (BigQuery, Compute Engine), Databricks, Kubernetes (basic orchestration)</p>
-
-  <p><strong>Observability & Monitoring:</strong> Structured Logging (JSON), Health Checks, Metrics, Performance Profiling, Retry Logic</p>
-
-  <p><strong>Tools & Collaboration:</strong> Git, GitHub, Jupyter Notebook, VS Code, Docker Desktop</p>
-
-  <p><strong>Data Science Practices:</strong> Data Preprocessing, Feature Engineering, Model Evaluation, Hyperparameter Tuning, Experiment Reproducibility, Visualization</p>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Capabilities</div>
+      <h2>Technical skills</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-col">
+        <h4>AI &amp; Machine Learning</h4>
+        <ul>
+          <li>Computer Vision</li>
+          <li>Multimodal AI &amp; VLMs</li>
+          <li>Generative Modeling (VAEs)</li>
+          <li>Deep Learning (PyTorch, TensorFlow)</li>
+          <li>RAG &amp; LLM Applications</li>
+          <li>Scikit-learn</li>
+        </ul>
+      </div>
+      <div class="skill-col">
+        <h4>Infrastructure &amp; MLOps</h4>
+        <ul>
+          <li>Docker &amp; Kubernetes</li>
+          <li>FastAPI</li>
+          <li>Redis</li>
+          <li>AWS &amp; GCP</li>
+          <li>Distributed Data Engineering (Spark, Hadoop)</li>
+          <li>Salesforce LWC / Apex</li>
+        </ul>
+      </div>
+      <div class="skill-col">
+        <h4>Languages &amp; Data</h4>
+        <ul>
+          <li>Python · SQL · Java</li>
+          <li>PostgreSQL · MongoDB</li>
+          <li>ETL &amp; Workflow Automation</li>
+          <li>Git / GitHub</li>
+          <li>Power BI · Tableau</li>
+          <li>Pandas · NumPy</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </section>
 
-
-
-<!-- CONTACT -->
-<section id="contact">
-<h2>Contact Me</h2>
-<p><strong>Address:</strong> Buffalo, New York</p>
-<p><strong>Phone:</strong> +1 (617)418-0803</p>
-<p><strong>Email:</strong> <a href="mailto:gayathri.adulla.18@gmail.com">gayathri.adulla.18@gmail.com</a></p>
-<p><strong>GitHub:</strong> <a href="https://github.com/adullagayathri" target="_blank">github.com/adullagayathri</a></p>
-<p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/gayathri-adulla-924056216/" target="_blank">linkedin.com/in/gayathri-adulla-924056216/</a></p>
-<a href="https://drive.google.com/file/d/18C1Idqz57xC-xbwvCurjMggupCNyyAGq/view?usp=sharing" target="_blank" class="btn">Download Resume</a>
-</section>
+<footer id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <div class="eyebrow">Get in touch</div>
+        <h2>Let's build something that ships.</h2>
+        <p class="lead">Open to full-time AI Engineer and Machine Learning Engineer roles. Reach out directly or find me on GitHub and LinkedIn.</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="mailto:gayathri.adulla.18@gmail.com">Email Me</a>
+          <a class="btn" href="https://www.linkedin.com/in/gayathri-adulla-924056216/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <ul class="contact-list">
+        <li><span>Location</span><span>Buffalo, New York</span></li>
+        <li><span>Email</span><a href="mailto:gayathri.adulla.18@gmail.com">gayathri.adulla.18@gmail.com</a></li>
+        <li><span>Phone</span><span>+1 (617) 418-0803</span></li>
+        <li><span>GitHub</span><a href="https://github.com/adullagayathri" target="_blank" rel="noopener">github.com/adullagayathri</a></li>
+        <li><span>Résumé</span><a href="https://drive.google.com/file/d/18C1Idqz57xC-xbwvCurjMggupCNyyAGq/view?usp=sharing" target="_blank" rel="noopener">Download PDF</a></li>
+      </ul>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Gayathri Adulla</span>
+      <span>Designed for clarity, built for production.</span>
+    </div>
+  </div>
+</footer>
 
 <script>
-// Fade-in on scroll
-const faders = document.querySelectorAll('.hero, .card');
-const appearOptions = {threshold:0.2, rootMargin:"0px 0px -50px 0px"};
-const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll){
-  entries.forEach(entry=>{
-    if(!entry.isIntersecting) return;
-    entry.target.classList.add('fade-in');
-    appearOnScroll.unobserve(entry.target);
+  // reveal bracket motif on scroll for project cards
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting) e.target.classList.add('in-view');
+    });
+  }, {threshold:0.2});
+  document.querySelectorAll('.proj-card').forEach(el=>{
+    el.classList.add('bracket');
+    obs.observe(el);
   });
-}, appearOptions);
-
-faders.forEach(fader => appearOnScroll.observe(fader));
 </script>
 
 </body>
