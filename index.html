@@ -4,404 +4,296 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gayathri Adulla — AI Engineer</title>
+<meta name="description" content="AI Engineer specializing in Computer Vision, Multimodal AI, and production ML systems.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-
   :root{
-    --bg: #FBFAF7;
-    --bg-soft: #F4F2ED;
-    --ink: #181C24;
-    --ink-soft: #4A4F58;
-    --muted: #8A8E94;
-    --accent: #2C5F63;       /* deep teal — lens / precision */
-    --accent-soft: #DCE7E6;
-    --copper: #AD703D;       /* sparing highlight — metrics */
-    --line: #E2DFD6;
-    --white: #FFFFFF;
-    --radius: 2px;
-    --maxw: 1080px;
+    --paper:#FBFAF7;
+    --paper-alt:#F3F1EB;
+    --ink:#181B22;
+    --ink-soft:#5B5F6B;
+    --line:#E2DFD6;
+    --accent:#2954FF;
+    --accent-soft:#EDF1FF;
+    --card:#FFFFFF;
+    --radius:2px;
+    --maxw:1040px;
   }
 
-  *{ box-sizing: border-box; }
-  html{ scroll-behavior: smooth; }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
   body{
     margin:0;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: 'Inter', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    line-height: 1.6;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
   }
   h1,h2,h3,h4{
-    font-family: 'Fraunces', serif;
-    font-weight: 500;
-    letter-spacing: -0.01em;
-    margin: 0;
-    color: var(--ink);
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    margin:0;
+    letter-spacing:-0.01em;
   }
-  a{ color: var(--accent); text-decoration: none; }
-  .mono{ font-family: 'IBM Plex Mono', monospace; }
-  .wrap{ max-width: var(--maxw); margin: 0 auto; padding: 0 32px; }
-  img{ max-width: 100%; display:block; }
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
 
-  /* ---------- corner-bracket motif (CV bounding box) ---------- */
-  .bracket{
-    position: relative;
-  }
-  .bracket::before, .bracket::after{
+  /* corner-bracket motif — echoes object-detection bounding boxes */
+  .bbox{position:relative;}
+  .bbox::before,.bbox::after,
+  .bbox > .bb-tl, .bbox > .bb-br{
     content:"";
     position:absolute;
-    width:18px; height:18px;
-    border: 2px solid var(--accent);
-    opacity: 0;
-    transition: opacity .35s ease, transform .35s ease;
-  }
-  .bracket::before{ top:-8px; left:-8px; border-right:none; border-bottom:none; transform: translate(4px,4px); }
-  .bracket::after{ bottom:-8px; right:-8px; border-left:none; border-top:none; transform: translate(-4px,-4px); }
-  .bracket:hover::before, .bracket:hover::after,
-  .bracket.in-view::before, .bracket.in-view::after{
-    opacity:1; transform: translate(0,0);
-  }
-
-  /* ---------- nav ---------- */
-  nav{
-    position: sticky; top:0; z-index:50;
-    background: rgba(251,250,247,0.92);
-    backdrop-filter: blur(6px);
-    border-bottom: 1px solid var(--line);
-  }
-  nav .wrap{
-    display:flex; align-items:center; justify-content:space-between;
-    height: 64px;
-  }
-  nav .brand{ font-family:'Fraunces',serif; font-size: 1.05rem; font-weight:600; }
-  nav .brand .dot{ color: var(--accent); }
-  nav ul{ display:flex; gap: 28px; list-style:none; margin:0; padding:0; }
-  nav a{ color: var(--ink-soft); font-size: 0.84rem; letter-spacing:.03em; text-transform:uppercase; }
-  nav a:hover{ color: var(--accent); }
-  .nav-toggle{ display:none; }
-
-  /* ---------- hero ---------- */
-  header.hero{
-    padding: 120px 0 80px;
-    position: relative;
-    overflow:hidden;
-  }
-  .hero-grid{
-    display:grid;
-    grid-template-columns: 1.3fr 0.9fr;
-    gap: 56px;
-    align-items:center;
-  }
-  .eyebrow{
-    font-family:'IBM Plex Mono', monospace;
-    font-size: 0.78rem;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--accent);
-    display:flex; align-items:center; gap:10px;
-    margin-bottom: 18px;
-  }
-  .eyebrow::before{
-    content:""; width:8px; height:8px; background: var(--accent); border-radius:50%;
-    box-shadow: 0 0 0 3px var(--accent-soft);
-  }
-  h1.name{
-    font-size: clamp(2.4rem, 5vw, 3.6rem);
-    line-height: 1.04;
-    margin-bottom: 18px;
-  }
-  .tagline{
-    font-size: 1.12rem;
-    color: var(--ink-soft);
-    max-width: 540px;
-    margin-bottom: 30px;
-  }
-  .hero-cta{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom: 44px;}
-  .btn{
-    font-family:'IBM Plex Mono',monospace;
-    font-size: 0.82rem;
-    padding: 13px 22px;
-    border: 1px solid var(--ink);
-    color: var(--ink);
-    border-radius: var(--radius);
-    transition: all .2s ease;
-    display:inline-flex; align-items:center; gap:8px;
-  }
-  .btn.primary{ background: var(--ink); color: var(--bg); }
-  .btn.primary:hover{ background: var(--accent); border-color: var(--accent); }
-  .btn:not(.primary):hover{ border-color: var(--accent); color: var(--accent); }
-
-  .readout{
-    display:flex; gap: 28px; flex-wrap: wrap;
-    border-top: 1px solid var(--line);
-    padding-top: 22px;
-  }
-  .readout .stat{ min-width: 110px; }
-  .readout .stat .num{
-    font-family:'IBM Plex Mono', monospace;
-    font-size: 1.5rem; font-weight:500; color: var(--accent);
-    display:block;
-  }
-  .readout .stat .label{
-    font-size: 0.74rem; color: var(--muted); text-transform:uppercase; letter-spacing:.05em;
-  }
-
-  .hero-photo{
-    position:relative;
-    border-radius: var(--radius);
-  }
-  .hero-photo img{
-    width:100%; aspect-ratio: 4/5; object-fit:cover;
-    filter: grayscale(8%) contrast(1.02);
-    border: 1px solid var(--line);
-  }
-  .scan-frame{
-    position:absolute; inset:-10px;
+    width:18px;height:18px;
+    border:2px solid var(--accent);
     pointer-events:none;
   }
-  .scan-frame::before, .scan-frame::after{
-    content:""; position:absolute; width:26px; height:26px; border: 2px solid var(--accent);
+  .bbox::before{ top:-8px; left:-8px; border-right:none; border-bottom:none; }
+  .bbox::after{ bottom:-8px; right:-8px; border-left:none; border-top:none; }
+
+  /* nav */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(251,250,247,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
   }
-  .scan-frame::before{ top:0; left:0; border-right:none; border-bottom:none; }
-  .scan-frame::after{ bottom:0; right:0; border-left:none; border-top:none; }
-  .scanline{
-    position:absolute; left:0; right:0; height:2px;
-    background: linear-gradient(90deg, transparent, var(--accent), transparent);
-    top:0; opacity:.85;
-    animation: scan 3.2s ease-in-out infinite;
+  .navbar{
+    max-width:var(--maxw); margin:0 auto; padding:16px 28px;
+    display:flex; align-items:center; justify-content:space-between;
   }
-  @keyframes scan{
-    0%{ top:2%; opacity:0; }
-    8%{ opacity:.85; }
-    50%{ top:96%; opacity:.85; }
-    58%{ opacity:0; }
-    100%{ top:96%; opacity:0; }
+  .brand{font-family:'Fraunces',serif; font-weight:600; font-size:1.05rem;}
+  .brand span{color:var(--accent);}
+  nav ul{list-style:none; display:flex; gap:26px; margin:0; padding:0;}
+  nav a{
+    color:var(--ink); font-size:0.86rem; font-weight:500;
+    font-family:'IBM Plex Mono',monospace; text-transform:lowercase;
   }
-  .photo-caption{
-    font-family:'IBM Plex Mono', monospace;
-    font-size: 0.7rem; color: var(--muted);
-    margin-top: 10px; display:flex; justify-content:space-between;
+  nav a:hover{color:var(--accent); text-decoration:none;}
+  .nav-toggle{display:none;}
+
+  /* hero */
+  .hero{
+    padding:96px 0 80px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.3fr 0.7fr; gap:56px; align-items:center;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:0.78rem;
+    color:var(--accent); letter-spacing:0.08em; text-transform:uppercase;
+    margin-bottom:18px; display:inline-block;
+  }
+  .hero h1{font-size:3.4rem; line-height:1.05; margin-bottom:18px;}
+  .hero .role-line{
+    font-size:1.15rem; color:var(--ink-soft); margin-bottom:22px; max-width:540px;
+  }
+  .hero p.thesis{
+    font-size:1.02rem; color:var(--ink-soft); max-width:560px; margin-bottom:34px;
+  }
+  .btn-row{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    font-family:'IBM Plex Mono',monospace; font-size:0.82rem;
+    padding:12px 22px; border:1px solid var(--ink); border-radius:var(--radius);
+    display:inline-block; transition:all .15s ease;
+  }
+  .btn-primary{background:var(--ink); color:var(--paper);}
+  .btn-primary:hover{background:var(--accent); border-color:var(--accent); color:#fff; text-decoration:none;}
+  .btn-ghost{color:var(--ink); border-color:var(--line);}
+  .btn-ghost:hover{border-color:var(--ink); text-decoration:none;}
+
+  .photo-frame{ margin:8px; }
+  .photo-frame img{
+    width:100%; display:block; aspect-ratio:1/1.05; object-fit:cover;
+    filter:grayscale(8%);
   }
 
-  /* ---------- section shell ---------- */
-  section{ padding: 88px 0; border-top: 1px solid var(--line); }
-  .section-head{ margin-bottom: 48px; max-width: 640px; }
-  .section-head .eyebrow{ margin-bottom: 12px; }
-  .section-head h2{ font-size: clamp(1.7rem, 3vw, 2.2rem); }
-  .section-head p{ color: var(--ink-soft); margin-top: 12px; }
+  /* stat strip */
+  .stats{
+    display:grid; grid-template-columns:repeat(4,1fr);
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    background:var(--paper-alt);
+  }
+  .stat{
+    padding:26px 20px; border-right:1px solid var(--line); text-align:left;
+  }
+  .stat:last-child{border-right:none;}
+  .stat .num{font-family:'Fraunces',serif; font-size:2.1rem; font-weight:600; color:var(--ink);}
+  .stat .lbl{font-family:'IBM Plex Mono',monospace; font-size:0.72rem; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.04em; margin-top:4px;}
 
-  /* ---------- about ---------- */
-  .about-body{ max-width: 720px; font-size: 1.02rem; color: var(--ink-soft); }
-  .about-body p{ margin: 0 0 18px; }
-  .about-body strong{ color: var(--ink); font-weight:600; }
+  section{padding:88px 0;}
+  .section-head{margin-bottom:48px; max-width:640px;}
+  .section-head .eyebrow{margin-bottom:10px;}
+  .section-head h2{font-size:2rem;}
 
-  /* ---------- education ---------- */
-  .edu-grid{ display:grid; gap: 24px; }
-  .edu-card{
-    display:grid; grid-template-columns: 140px 1fr; gap: 24px;
-    padding: 22px 0; border-bottom: 1px solid var(--line);
-  }
-  .edu-card:last-child{ border-bottom:none; }
-  .edu-card .dates{ font-family:'IBM Plex Mono',monospace; font-size: 0.8rem; color: var(--accent); }
-  .edu-card h3{ font-size: 1.15rem; margin-bottom: 4px; }
-  .edu-card .school{ color: var(--ink-soft); font-weight:500; margin-bottom: 6px; }
-  .edu-card .extra{ font-size: 0.88rem; color: var(--muted); }
+  /* about */
+  .about-body p{font-size:1.02rem; color:var(--ink-soft); max-width:700px; margin-bottom:18px;}
+  .about-body strong{color:var(--ink); font-weight:600;}
 
-  /* ---------- experience timeline ---------- */
-  .timeline{ position:relative; padding-left: 28px; border-left: 1px solid var(--line); }
-  .tl-item{ position: relative; padding-bottom: 52px; }
-  .tl-item:last-child{ padding-bottom:0; }
-  .tl-item::before{
-    content:""; position:absolute; left:-33px; top:4px;
-    width:9px; height:9px; background: var(--bg); border:2px solid var(--accent); border-radius:50%;
+  /* education / experience timeline */
+  .entry{
+    border-top:1px solid var(--line);
+    padding:34px 0;
+    display:grid; grid-template-columns:240px 1fr; gap:32px;
   }
-  .tl-item.current::before{ background: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
-  .tl-head{ display:flex; flex-wrap:wrap; align-items:baseline; gap:10px; margin-bottom:6px; }
-  .tl-head h3{ font-size: 1.22rem; }
-  .tl-tag{
-    font-family:'IBM Plex Mono', monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:.06em;
-    background: var(--accent-soft); color: var(--accent); padding: 3px 9px; border-radius: 20px;
-  }
-  .tl-meta{ font-family:'IBM Plex Mono',monospace; font-size: 0.8rem; color: var(--muted); margin-bottom: 14px; }
-  .tl-meta .sep{ margin: 0 8px; }
-  .tl-body{ color: var(--ink-soft); max-width: 700px; }
-  .tl-body ul{ margin: 10px 0 0; padding-left: 18px; }
-  .tl-body li{ margin-bottom: 8px; }
-  .tl-stats{ display:flex; gap: 22px; margin-top: 16px; flex-wrap:wrap; }
-  .tl-stats .s{ font-family:'IBM Plex Mono',monospace; font-size: 0.78rem; color: var(--copper); }
-  .tl-stats .s b{ font-size: 1rem; }
-
-  /* ---------- projects ---------- */
-  .proj-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
-  .proj-card{
-    background: var(--white);
-    border: 1px solid var(--line);
-    transition: border-color .25s ease, transform .25s ease;
-    display:flex; flex-direction:column;
-  }
-  .proj-card:hover{ border-color: var(--accent); transform: translateY(-3px); }
-  .proj-img{ aspect-ratio: 16/10; overflow:hidden; background: var(--bg-soft); }
-  .proj-img img{ width:100%; height:100%; object-fit:cover; }
-  .proj-body{ padding: 22px 24px 26px; display:flex; flex-direction:column; flex:1; }
-  .proj-eyebrow{
-    font-family:'IBM Plex Mono',monospace; font-size:0.68rem; color: var(--accent);
-    text-transform:uppercase; letter-spacing:.07em; margin-bottom:8px;
-  }
-  .proj-card h3{ font-size: 1.18rem; margin-bottom:10px; }
-  .proj-card p{ color: var(--ink-soft); font-size: 0.93rem; flex:1; }
-  .proj-stack{ display:flex; flex-wrap:wrap; gap:6px; margin: 14px 0; }
-  .proj-stack span{
-    font-family:'IBM Plex Mono',monospace; font-size: 0.68rem; color: var(--ink-soft);
-    background: var(--bg-soft); padding: 3px 8px; border-radius: 20px;
-  }
-  .proj-link{ font-family:'IBM Plex Mono',monospace; font-size: 0.8rem; font-weight:500; }
-  .proj-link::after{ content:" →"; }
-  .proj-card.full{ grid-column: 1 / -1; }
-  .proj-card.full .proj-img{ aspect-ratio: auto; height: 320px; }
-
-  /* ---------- skills ---------- */
-  .skills-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--line); }
-  .skill-col{ padding: 26px 24px; border-right: 1px solid var(--line); }
-  .skill-col:nth-child(3n){ border-right:none; }
-  .skill-col h4{
-    font-family:'IBM Plex Mono', monospace; font-size: 0.74rem; text-transform:uppercase;
-    letter-spacing:.06em; color: var(--accent); margin-bottom: 14px;
-  }
-  .skill-col ul{ margin:0; padding:0; list-style:none; }
-  .skill-col li{
-    font-size: 0.92rem; color: var(--ink-soft);
-    padding: 7px 0; border-bottom: 1px solid var(--line);
-  }
-  .skill-col li:last-child{ border-bottom:none; }
-
-  /* ---------- contact / footer ---------- */
-  footer{ padding: 80px 0 50px; border-top: 1px solid var(--line); }
-  .contact-grid{ display:grid; grid-template-columns: 1.2fr 1fr; gap: 50px; align-items:start; }
-  footer h2{ font-size: clamp(1.8rem, 3.4vw, 2.4rem); margin-bottom: 18px; }
-  footer p.lead{ color: var(--ink-soft); max-width: 460px; margin-bottom: 28px; }
-  .contact-list{ list-style:none; margin:0; padding:0; }
-  .contact-list li{
-    font-family:'IBM Plex Mono', monospace; font-size: 0.88rem;
-    padding: 12px 0; border-bottom: 1px solid var(--line);
-    display:flex; justify-content:space-between; color: var(--ink-soft);
-  }
-  .contact-list li span:first-child{ color: var(--muted); text-transform:uppercase; font-size:0.7rem; letter-spacing:.06em; }
-  .contact-list li a{ color: var(--ink); }
-  .contact-list li a:hover{ color: var(--accent); }
-  .foot-bottom{
-    margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
-    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
-    font-family:'IBM Plex Mono',monospace; font-size: 0.72rem; color: var(--muted);
+  .entry:last-child{border-bottom:1px solid var(--line);}
+  .entry .meta{font-family:'IBM Plex Mono',monospace; font-size:0.8rem; color:var(--ink-soft);}
+  .entry .meta .org{color:var(--ink); font-weight:600; font-family:'Inter',sans-serif; font-size:0.95rem; display:block; margin-bottom:6px;}
+  .entry h3{font-size:1.15rem; margin-bottom:10px;}
+  .entry ul{margin:0; padding-left:18px; color:var(--ink-soft); font-size:0.95rem;}
+  .entry li{margin-bottom:7px;}
+  .tag-row{margin-top:14px; display:flex; flex-wrap:wrap; gap:8px;}
+  .tag{
+    font-family:'IBM Plex Mono',monospace; font-size:0.72rem;
+    background:var(--accent-soft); color:var(--accent);
+    padding:4px 9px; border-radius:var(--radius);
   }
 
-  @media (max-width: 880px){
-    .hero-grid{ grid-template-columns: 1fr; }
-    .hero-photo{ max-width: 320px; }
-    .proj-grid{ grid-template-columns: 1fr; }
-    .skills-grid{ grid-template-columns: 1fr; }
-    .skill-col{ border-right:none; border-bottom: 1px solid var(--line); }
-    .edu-card{ grid-template-columns: 1fr; }
-    .contact-grid{ grid-template-columns: 1fr; }
-    nav ul{ display:none; }
+  /* projects */
+  .project-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    margin-bottom:28px;
+    padding:36px;
+    display:grid; grid-template-columns:1fr; gap:18px;
+  }
+  .project-card.featured{ border-color:var(--ink); }
+  .project-top{display:flex; justify-content:space-between; align-items:flex-start; gap:20px; flex-wrap:wrap;}
+  .project-top h3{font-size:1.3rem;}
+  .badge{
+    font-family:'IBM Plex Mono',monospace; font-size:0.7rem;
+    color:#fff; background:var(--accent); padding:4px 10px;
+    text-transform:uppercase; letter-spacing:0.04em; white-space:nowrap;
+  }
+  .project-card p{color:var(--ink-soft); margin:0; max-width:760px;}
+  .project-card ul{color:var(--ink-soft); margin:0; padding-left:18px;}
+  .project-card li{margin-bottom:6px;}
+  .project-links{display:flex; gap:18px; font-family:'IBM Plex Mono',monospace; font-size:0.82rem; margin-top:6px;}
+  .note{
+    font-size:0.82rem; color:var(--ink-soft); border-left:2px solid var(--line);
+    padding-left:12px; font-style:italic;
+  }
+
+  /* skills */
+  .skills-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:30px;}
+  .skill-group h4{font-family:'IBM Plex Mono',monospace; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--accent); margin-bottom:12px; font-weight:500;}
+  .skill-group .tag-row{margin-top:0;}
+
+  /* contact */
+  footer{
+    background:var(--ink); color:var(--paper);
+    padding:72px 0 36px;
+  }
+  footer h2{color:var(--paper); font-size:2rem; margin-bottom:14px;}
+  footer p{color:#9CA0AC; max-width:480px; margin-bottom:32px;}
+  .contact-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-bottom:48px;}
+  .contact-item .lbl{font-family:'IBM Plex Mono',monospace; font-size:0.72rem; color:#6E7280; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;}
+  .contact-item a, .contact-item span{color:var(--paper); font-size:0.98rem;}
+  .contact-item a:hover{color:var(--accent);}
+  .foot-bottom{border-top:1px solid #2A2D38; padding-top:24px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-family:'IBM Plex Mono',monospace; font-size:0.78rem; color:#6E7280;}
+
+  @media (max-width:760px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero{padding:64px 0 48px;}
+    .hero h1{font-size:2.3rem;}
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .stat{border-bottom:1px solid var(--line);}
+    .entry{grid-template-columns:1fr; gap:10px;}
+    .skills-grid{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    nav ul{gap:14px;}
+    .photo-frame{order:-1; max-width:220px; margin:0 auto 16px;}
   }
 
   @media (prefers-reduced-motion: reduce){
-    .scanline{ animation: none; display:none; }
-    html{ scroll-behavior:auto; }
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
   }
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="wrap">
-    <div class="brand">Gayathri Adulla<span class="dot">.</span></div>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
-
-<header class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="eyebrow">AI Engineer · Buffalo, NY</div>
-      <h1 class="name">Gayathri<br>Adulla</h1>
-      <p class="tagline">I build computer vision and multimodal AI systems that turn raw pixels and signals into production decisions — from dashcam telemetry to 3D human reconstruction.</p>
-      <div class="hero-cta">
-        <a class="btn primary" href="#projects">View Technical Work</a>
-        <a class="btn" href="https://drive.google.com/file/d/18C1Idqz57xC-xbwvCurjMggupCNyyAGq/view?usp=sharing" target="_blank" rel="noopener">Download Résumé</a>
-      </div>
-      <div class="readout">
-        <div class="stat"><span class="num">90%</span><span class="label">Detection accuracy</span></div>
-        <div class="stat"><span class="num">98%</span><span class="label">Deepfake classification</span></div>
-        <div class="stat"><span class="num">300K+</span><span class="label">Parcels indexed</span></div>
-        <div class="stat"><span class="num">0.997</span><span class="label">ROC-AUC</span></div>
-      </div>
-    </div>
-    <div class="hero-photo">
-      <div class="scan-frame"><div class="scanline"></div></div>
-      <img src="profile_photo.jpg" alt="Gayathri Adulla">
-      <div class="photo-caption">
-        <span>SUBJECT_001</span><span>CONF: 0.98</span>
-      </div>
-    </div>
+<header>
+  <div class="navbar">
+    <div class="brand">Gayathri Adulla<span>.</span></div>
+    <nav>
+      <ul>
+        <li><a href="#about">about</a></li>
+        <li><a href="#experience">experience</a></li>
+        <li><a href="#projects">projects</a></li>
+        <li><a href="#skills">skills</a></li>
+        <li><a href="#contact">contact</a></li>
+      </ul>
+    </nav>
   </div>
 </header>
 
-<section id="about">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">About</div>
-      <h2>Systems thinking, applied to vision and language</h2>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">AI Engineer · Computer Vision · Multimodal AI</span>
+      <h1>Gayathri Adulla</h1>
+      <p class="role-line">I build production computer vision and multimodal AI systems — from model architecture to deployed pipelines that ship real outcomes.</p>
+      <p class="thesis">Currently architecting a dashcam-based computer vision pipeline that automates housing-code-violation detection at city scale. M.S. in Artificial Intelligence, University at Buffalo.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="#projects">View Technical Work</a>
+        <a class="btn btn-ghost" href="#contact">Get in Touch</a>
+      </div>
     </div>
-    <div class="about-body">
-      <p>I'm an <strong>AI Engineer</strong> with hands-on experience building computer vision, multimodal AI, and machine learning systems that solve real-world problems — spanning research, internships, and production deployments that turn large volumes of image, video, and structured data into scalable AI solutions.</p>
-      <p>At <strong>Third Estate Analytics</strong>, I build computer vision pipelines that analyze dashcam imagery, detect housing code violations, and automate address-level reporting for municipal stakeholders. I joined the project through a University at Buffalo industry collaboration and was invited to continue as an AI Engineer after successfully delivering the initial system.</p>
-      <p>Previously, I worked on distributed data engineering, feature pipelines, and ML infrastructure during internships at TresVista and ZS Associates, and as a Graduate Research Assistant at the University at Buffalo, where I developed 3D human reconstruction and rendering pipelines using SMPL-X and PyTorch.</p>
-      <p>My technical interests sit at the intersection of <strong>computer vision, multimodal &amp; vision-language models, generative modeling, and ML infrastructure</strong> — built with Python, PyTorch, TensorFlow, Docker, Kubernetes, Spark, FastAPI, Redis, AWS, and GCP.</p>
-      <p>I'm currently seeking full-time AI Engineer / Machine Learning Engineer roles where I can build scalable, production-grade AI systems.</p>
+    <div class="photo-frame bbox">
+      <img src="profile_photo.jpg" alt="Gayathri Adulla">
     </div>
   </div>
 </section>
 
-<section id="education">
+<div class="stats">
+  <div class="stat"><div class="num">90%</div><div class="lbl">Violation detection accuracy</div></div>
+  <div class="stat"><div class="num">98%</div><div class="lbl">Deepfake detection accuracy</div></div>
+  <div class="stat"><div class="num">300K+</div><div class="lbl">Parcels indexed (production)</div></div>
+  <div class="stat"><div class="num">0.997</div><div class="lbl">ROC-AUC, β-VAE classifier</div></div>
+</div>
+
+<section id="about">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Education</div>
+      <span class="eyebrow mono">01 / About</span>
+      <h2>Systems that ship, not just notebooks that run.</h2>
+    </div>
+    <div class="about-body">
+      <p>I'm an <strong>AI Engineer</strong> building computer vision, multimodal AI, and machine learning systems that solve real operational problems. My work spans research, internships, and one live production deployment — converting raw image, video, and structured data into reliable, scalable AI systems.</p>
+      <p>At <strong>Third Estate Analytics</strong>, I architected a computer vision pipeline that turns dashcam footage into structured housing-code-violation reports for municipal use — currently running at 90% detection accuracy across a 300,000-parcel dataset. Previously, as a Graduate Research Assistant at the University at Buffalo, I built 3D human reconstruction pipelines using SMPL-X and PyTorch, and engineered distributed simulation testbeds for multi-agent evaluation.</p>
+      <p>I care about the full lifecycle: model design, data pipelines, evaluation rigor, and the infrastructure (Docker, Kubernetes, FastAPI, Redis) that keeps a system running after the demo ends.</p>
+    </div>
+  </div>
+</section>
+
+<section id="education" style="background:var(--paper-alt); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow mono">02 / Education</span>
       <h2>Academic foundation</h2>
     </div>
-    <div class="edu-grid">
-      <div class="edu-card">
-        <div class="dates mono">JAN 2025 –<br>MAY 2026</div>
-        <div>
-          <h3>M.S. in Artificial Intelligence</h3>
-          <div class="school">University at Buffalo</div>
-          <div class="extra">Coursework: Data-Intensive Computing · Computer Vision · Data Structures &amp; Algorithms · Data Models &amp; Query Languages</div>
-        </div>
+
+    <div class="entry">
+      <div class="meta"><span class="org">University at Buffalo</span>Jan 2025 – May 2026</div>
+      <div>
+        <h3>M.S. in Artificial Intelligence</h3>
+        <ul>
+          <li>Relevant coursework: Data-Intensive Computing, Computer Vision, Data Structures &amp; Algorithms, Data Models &amp; Query Languages</li>
+        </ul>
       </div>
-      <div class="edu-card">
-        <div class="dates mono">SEP 2024 –<br>DEC 2024</div>
-        <div>
-          <h3>M.S. in Management Information Systems</h3>
-          <div class="school">Northeastern University</div>
-          <div class="extra">Object-Oriented Modeling · Data Science</div>
-        </div>
-      </div>
-      <div class="edu-card">
-        <div class="dates mono">2020 –<br>2024</div>
-        <div>
-          <h3>B.Tech in Artificial Intelligence</h3>
-          <div class="school">Mahindra University</div>
-          <div class="extra">Deep Learning · Artificial Intelligence</div>
-        </div>
+    </div>
+
+    <div class="entry">
+      <div class="meta"><span class="org">Mahindra University</span>2020 – 2024</div>
+      <div>
+        <h3>B.Tech in Artificial Intelligence</h3>
       </div>
     </div>
   </div>
@@ -410,186 +302,270 @@
 <section id="experience">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Experience</div>
-      <h2>From research to production</h2>
+      <span class="eyebrow mono">03 / Experience</span>
+      <h2>Where the work happened</h2>
     </div>
 
-    <div class="timeline">
-
-      <div class="tl-item current">
-        <div class="tl-head">
-          <h3>AI Engineer</h3>
-          <span class="tl-tag">Current</span>
-        </div>
-        <div class="tl-meta">Third Estate Analytics <span class="sep">·</span> Buffalo, NY (Hybrid) <span class="sep">·</span> Jan 2026 – Present</div>
-        <div class="tl-body">
-          <ul>
-            <li>Architected a production computer vision pipeline converting GoPro dashcam footage into structured, address-resolved housing code violation reports — processing GPMF telemetry, SSIM-based keyframe extraction, and Gemini Vision VLM classification.</li>
-            <li>Indexed and mapped flagged image frames against Erie County's 300,000-parcel dataset to pull verified owner records.</li>
-            <li>Designed and integrated a Human-in-the-Loop (HITL) validation UI within Salesforce (LWC, Apex), establishing an active learning loop where uncertain boundary-box anomalies are queued for automated retraining.</li>
-            <li>Replaced legacy manual workflows, reducing property inspection lifecycles by transforming neighborhood drive-through data into end-to-end, address-tagged reports.</li>
-          </ul>
-          <div class="tl-stats">
-            <span class="s"><b>90%</b> violation detection</span>
-            <span class="s"><b>90%</b> address resolution</span>
-          </div>
+    <div class="entry">
+      <div class="meta"><span class="org">Third Estate Analytics</span>Jan 2026 – Present · Buffalo, NY</div>
+      <div>
+        <h3>Artificial Intelligence Engineer</h3>
+        <ul>
+          <li>Architected a production CV pipeline converting GoPro dashcam footage into address-resolved housing-code-violation reports using GPMF telemetry, SSIM keyframe extraction, and Gemini Vision VLM classification.</li>
+          <li>Achieved 90% violation detection accuracy and 90% address-resolution accuracy across Erie County's 300,000-parcel dataset.</li>
+          <li>Designed a Human-in-the-Loop validation UI (Salesforce LWC/Apex) with an active learning loop for continuous model retraining.</li>
+          <li>Replaced manual municipal inspection workflows, reducing property inspection lifecycles end-to-end.</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">VLMs</span><span class="tag">Active Learning</span><span class="tag">Geospatial Data</span>
         </div>
       </div>
+    </div>
 
-      <div class="tl-item">
-        <div class="tl-head"><h3>Graduate Research Assistant</h3></div>
-        <div class="tl-meta">University at Buffalo <span class="sep">·</span> Buffalo, NY (Hybrid) <span class="sep">·</span> Aug 2025 – Dec 2025</div>
-        <div class="tl-body">
-          <ul>
-            <li>Reconstructed full 3D human body meshes from monocular video using SMPL-X motion parameters; built a CPU-optimized rendering pipeline (PyTorch, NumPy, Trimesh, Pyrender) for scalable mesh visualization.</li>
-            <li>Developed a web-based visualization system (Gradio, Hugging Face Spaces) integrating NPZ motion data and multiple video outputs for comparing motion sequence variants.</li>
-            <li>Engineered distributed simulation testbeds using Docker container clusters and Redis caches, establishing the architectural foundation for multi-agent scale evaluation.</li>
-          </ul>
+    <div class="entry">
+      <div class="meta"><span class="org">University at Buffalo</span>Aug 2025 – Dec 2025 · Buffalo, NY</div>
+      <div>
+        <h3>Graduate Research Assistant</h3>
+        <ul>
+          <li>Reconstructed 3D human body meshes from monocular video using SMPL-X, with a CPU-optimized rendering pipeline (PyTorch, Trimesh, Pyrender).</li>
+          <li>Built a Gradio/Hugging Face Spaces visualization tool comparing motion sequence outputs across model variants.</li>
+          <li>Engineered distributed simulation testbeds (Docker, Redis) for multi-agent scale evaluation.</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag">PyTorch</span><span class="tag">SMPL-X</span><span class="tag">Docker</span><span class="tag">Redis</span>
         </div>
       </div>
+    </div>
 
-      <div class="tl-item">
-        <div class="tl-head"><h3>AI Infrastructure Engineering Intern</h3></div>
-        <div class="tl-meta">TresVista <span class="sep">·</span> Bengaluru, India (On-site) <span class="sep">·</span> Jan 2024 – Aug 2024</div>
-        <div class="tl-body">
-          <ul>
-            <li>Automated financial ETL pipelines using Python, SQL, VBA, and Apache Spark/Hadoop on AWS and GCP, improving large-scale dataset processing efficiency.</li>
-            <li>Built interactive dashboards with Power BI and Tableau (Pandas, NumPy), reducing manual reporting effort by 50%.</li>
-            <li>Implemented scalable data versioning pipelines and feature extraction layers, validating data security isolation across staging cycles for multi-client deep learning models.</li>
-          </ul>
+    <div class="entry">
+      <div class="meta"><span class="org">TresVista</span>Jan 2024 – Aug 2024 · Bengaluru</div>
+      <div>
+        <h3>AI Infrastructure Engineering Intern</h3>
+        <ul>
+          <li>Automated financial ETL pipelines (Python, SQL, VBA, Spark/Hadoop) across AWS and GCP.</li>
+          <li>Built Power BI / Tableau dashboards that cut manual reporting effort by 50%.</li>
+          <li>Implemented scalable data versioning pipelines, validating security isolation across staging cycles for multi-client deep learning models.</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag">SQL</span><span class="tag">Spark</span><span class="tag">AWS</span><span class="tag">GCP</span>
         </div>
       </div>
+    </div>
 
-      <div class="tl-item">
-        <div class="tl-head"><h3>Machine Learning Engineering Intern</h3></div>
-        <div class="tl-meta">ZS Associates <span class="sep">·</span> Pune, India (On-site) <span class="sep">·</span> Jan 2023 – Dec 2023</div>
-        <div class="tl-body">
-          <ul>
-            <li>Developed and evaluated LSTM time-series forecasting models (Scikit-learn, TensorFlow, PyTorch), raising target macro-precision by 18.4% over an unoptimized baseline.</li>
-            <li>Built scalable data pipelines (SQL, Spark, Hadoop) to process large healthcare datasets with secure, governed VM-based workflows.</li>
-            <li>Translated complex modeling results into actionable insights for clients via Pandas, NumPy, SciPy, Tableau, and Power BI.</li>
-          </ul>
+    <div class="entry">
+      <div class="meta"><span class="org">ZS Associates</span>Jan 2023 – Dec 2023 · Pune</div>
+      <div>
+        <h3>Machine Learning Engineering Intern</h3>
+        <ul>
+          <li>Developed LSTM time-series forecasting models, improving macro-precision 18.4% over baseline.</li>
+          <li>Built scalable healthcare data pipelines (SQL, Spark, Hadoop) with governance and secure VM workflows.</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag">TensorFlow</span><span class="tag">PyTorch</span><span class="tag">Forecasting</span>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<section id="projects">
+<section id="projects" style="background:var(--paper-alt); border-top:1px solid var(--line);">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Selected Work</div>
-      <h2>Technical projects</h2>
-      <p>A selection of research and applied builds across computer vision, multimodal learning, and distributed AI systems.</p>
+      <span class="eyebrow mono">04 / Projects</span>
+      <h2>Technical work, in production and in research</h2>
     </div>
 
-    <div class="proj-grid">
-
-      <div class="proj-card full">
-        <div class="proj-img"><img src="dd.jpeg" alt="Deepfake detection project"></div>
-        <div class="proj-body">
-          <div class="proj-eyebrow">Generative Modeling · AI Security</div>
-          <h3>Deepfake Detection using β-Variational Autoencoder</h3>
-          <p>Hybrid detection framework combining unsupervised latent-space representation learning with supervised classification. Trained on FFHQ real faces and Stable Diffusion–generated synthetic faces, using KL-divergence anomaly detection and a logistic regression classifier on 128-D latent embeddings.</p>
-          <div class="proj-stack">
-            <span>PyTorch</span><span>VAEs</span><span>Scikit-learn</span><span>t-SNE</span><span>Stable Diffusion</span>
-          </div>
-          <div class="tl-stats" style="margin-bottom:14px;">
-            <span class="s"><b>98%</b> accuracy</span>
-            <span class="s"><b>0.997</b> ROC-AUC</span>
-          </div>
-          <a class="proj-link" href="https://github.com/adullagayathri/Deepfake_Detection" target="_blank" rel="noopener">View repository</a>
-        </div>
+    <!-- Featured: Housing Code Violation Detection -->
+    <div class="project-card featured">
+      <div class="project-top">
+        <h3>🏠 Housing Code Violation Detection Pipeline</h3>
+        <span class="badge">Production · Live Client</span>
       </div>
-
-      <div class="proj-card">
-        <div class="proj-img"><img src="mm.jpeg" alt="Multimodal movie genre classification"></div>
-        <div class="proj-body">
-          <div class="proj-eyebrow">Multimodal Learning</div>
-          <h3>Multimodal Movie Genre Classification</h3>
-          <p>Dual-branch fusion model combining DistilBERT text embeddings with ResNet-18 visual features to predict multi-label movie genres from posters and plot overviews, deployed with a live interactive demo.</p>
-          <div class="proj-stack"><span>PyTorch</span><span>DistilBERT</span><span>ResNet-18</span></div>
-          <a class="proj-link" href="https://github.com/adullagayathri/multimodal-movie-genre-prediction" target="_blank" rel="noopener">View repository</a>
-        </div>
+      <p>A production computer vision system converting GoPro dashcam footage into structured, address-resolved housing-code-violation reports — built for Third Estate Analytics in collaboration with the University at Buffalo and Erie County municipal stakeholders.</p>
+      <ul>
+        <li>GPMF telemetry processing and SSIM-based keyframe extraction from raw dashcam video</li>
+        <li>Gemini Vision VLM classification achieving 90% violation detection accuracy</li>
+        <li>Geospatial indexing against a 300,000-parcel county dataset, 90% address-resolution accuracy</li>
+        <li>Human-in-the-Loop active learning loop built on Salesforce LWC/Apex for continuous retraining</li>
+      </ul>
+      <div class="tag-row">
+        <span class="tag">Computer Vision</span><span class="tag">VLM</span><span class="tag">Active Learning</span><span class="tag">Geospatial</span>
       </div>
-
-      <div class="proj-card">
-        <div class="proj-img"><img src="agent.png" alt="AI agent microservice platform"></div>
-        <div class="proj-body">
-          <div class="proj-eyebrow">Distributed Systems · MLOps</div>
-          <h3>AI Agent Microservice Platform</h3>
-          <p>Containerized runtime orchestrating 50+ concurrent autonomous AI agents via a FastAPI orchestrator and Redis message queue, with health checks, retry logic, and structured logging.</p>
-          <div class="proj-stack"><span>FastAPI</span><span>Docker</span><span>Redis</span></div>
-          <a class="proj-link" href="https://github.com/adullagayathri/AI-Agent-Microservice-Platform" target="_blank" rel="noopener">View repository</a>
-        </div>
-      </div>
-
-      <div class="proj-card">
-        <div class="proj-img"><img src="bb.jpeg" alt="Partial face recognition under occlusion"></div>
-        <div class="proj-body">
-          <div class="proj-eyebrow">Classical Computer Vision</div>
-          <h3>Partial Face Recognition Under Occlusion</h3>
-          <p>Hybrid feature-engineering pipeline (HOG, SIFT, LBP) with PCA dimensionality reduction and SVM classification, designed to identify individuals from incomplete or occluded facial features.</p>
-          <div class="proj-stack"><span>OpenCV</span><span>SVM</span><span>PCA</span></div>
-          <a class="proj-link" href="https://github.com/adullagayathri/Partial_Face_Recognition_Under_Occlusion" target="_blank" rel="noopener">View repository</a>
-        </div>
-      </div>
-
-      <div class="proj-card">
-        <div class="proj-img"><img src="ec.jpg" alt="Role-based e-commerce management system"></div>
-        <div class="proj-body">
-          <div class="proj-eyebrow">Software Engineering</div>
-          <h3>Role-Based E-Commerce Management System</h3>
-          <p>Java desktop application with role-based access control across Admin, Warehouse, Delivery, and Fraud Analyst dashboards, backed by a normalized MySQL schema.</p>
-          <div class="proj-stack"><span>Java</span><span>Swing</span><span>MySQL</span></div>
-          <a class="proj-link" href="https://github.com/adullagayathri/Role-Based_E-Commerce_Management_System" target="_blank" rel="noopener">View repository</a>
-        </div>
-      </div>
-
+      <p class="note">Built on proprietary client infrastructure — code and live demo available on request, pending client confidentiality clearance.</p>
     </div>
+
+    <!-- Multimodal Movie Genre -->
+    <div class="project-card bbox">
+      <div class="project-top">
+        <h3>🎬 Multimodal Movie Genre Classification</h3>
+        <span class="badge">Live Demo</span>
+      </div>
+      <p>A multimodal deep learning system fusing DistilBERT text embeddings with ResNet-18 visual features to predict movie genres from posters and plot overviews, deployed via an interactive web interface.</p>
+      <ul>
+        <li>Dual-branch late-fusion architecture aligning text and image latent features</li>
+        <li>Addressed class imbalance with weighted BCE loss and label co-occurrence analysis</li>
+        <li>Evaluated with macro/micro F1, confusion matrices, and threshold tuning</li>
+      </ul>
+      <div class="tag-row">
+        <span class="tag">PyTorch</span><span class="tag">DistilBERT</span><span class="tag">ResNet-18</span><span class="tag">Multimodal</span>
+      </div>
+      <div class="project-links">
+        <a href="https://adullagayathri.github.io/multimodal-movie-genre-prediction/" target="_blank">Live Demo →</a>
+        <a href="https://github.com/adullagayathri/multimodal-movie-genre-prediction" target="_blank">Repository →</a>
+      </div>
+    </div>
+
+    <!-- Deepfake Detection -->
+    <div class="project-card bbox">
+      <div class="project-top">
+        <h3>🧠 Deepfake Detection — β-Variational Autoencoder</h3>
+        <span class="badge">98% Accuracy</span>
+      </div>
+      <p>A hybrid deepfake detection framework combining unsupervised representation learning with supervised latent-space classification — detects synthetic faces by modeling structured latent distributions rather than surface-level pixel artifacts.</p>
+      <ul>
+        <li>β-VAE (β=4) with 128-dimensional latent space, trained on FFHQ real faces vs. Stable-Diffusion-generated fakes</li>
+        <li>KL-divergence anomaly detection combined with logistic regression on standardized embeddings</li>
+        <li>98% classification accuracy, 0.997 ROC-AUC, t-SNE-validated class separability</li>
+      </ul>
+      <div class="tag-row">
+        <span class="tag">PyTorch</span><span class="tag">VAEs</span><span class="tag">Generative AI</span><span class="tag">AI Security</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/adullagayathri/Deepfake_Detection" target="_blank">Repository →</a>
+      </div>
+    </div>
+
+    <!-- AI Agent Microservice Platform -->
+    <div class="project-card bbox">
+      <div class="project-top">
+        <h3>🤖 AI Agent Microservice Platform</h3>
+        <span class="badge">Distributed Systems</span>
+      </div>
+      <p>A containerized, cloud-native runtime orchestrating autonomous AI agents — a centralized FastAPI orchestrator coordinates task routing and execution across independent agent microservices via a Redis message queue.</p>
+      <ul>
+        <li>Simulates 50+ concurrent agents with health checks, retry logic, and structured JSON logging</li>
+        <li>Modular architecture for rapid integration of new agent types</li>
+        <li>Demonstrates cloud-native patterns used in modern agentic AI platforms</li>
+      </ul>
+      <div class="tag-row">
+        <span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag">Redis</span><span class="tag">Multi-Agent Systems</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/adullagayathri/AI-Agent-Microservice-Platform" target="_blank">Repository →</a>
+      </div>
+    </div>
+
+    <!-- 3D Mesh Reconstruction -->
+    <div class="project-card bbox">
+      <div class="project-top">
+        <h3>🧍 3D Human Mesh Reconstruction</h3>
+        <span class="badge">Live Demo</span>
+      </div>
+      <p>A research pipeline reconstructing full 3D human body meshes from monocular video using SMPL-X parametric models, with a CPU-optimized rendering pipeline and a Gradio-based comparison interface.</p>
+      <ul>
+        <li>PyTorch tensor pipeline integrated with Trimesh mesh manipulation and Pyrender physically-based rendering</li>
+        <li>Converts raw NPZ pose/shape parameters into frame-wise rendered, vertex-normalized mesh outputs</li>
+        <li>Vectorized batch processing to minimize memory overhead without GPU dependency</li>
+      </ul>
+      <div class="tag-row">
+        <span class="tag">PyTorch</span><span class="tag">SMPL-X</span><span class="tag">Pyrender</span><span class="tag">Gradio</span>
+      </div>
+      <div class="project-links">
+        <a href="#" target="_blank">Live Demo → <span class="mono" style="font-size:0.75rem;color:var(--ink-soft);">(add your hosted link)</span></a>
+        <a href="https://github.com/adullagayathri/3d-mesh-reconstruction" target="_blank">Repository →</a>
+      </div>
+    </div>
+
+    <!-- Partial Face Recognition -->
+    <div class="project-card bbox">
+      <div class="project-top">
+        <h3>👁 Partial Face Recognition Under Occlusion</h3>
+      </div>
+      <p>A classical computer vision pipeline recognizing faces under heavy occlusion — eyes-and-nose-only inputs simulating masks, low-quality footage, or cropped images.</p>
+      <ul>
+        <li>Fused HOG, SIFT, LBP, and color histogram features with PCA dimensionality reduction</li>
+        <li>SVM classification combined with cosine/Euclidean similarity matching</li>
+        <li>Ensemble feature-fusion strategies improved robustness under rotation, scale, and lighting variation</li>
+      </ul>
+      <div class="tag-row">
+        <span class="tag">OpenCV</span><span class="tag">SVM</span><span class="tag">Feature Engineering</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/adullagayathri/Partial_Face_Recognition_Under_Occlusion" target="_blank">Repository →</a>
+      </div>
+    </div>
+
+    <!-- Role-Based E-Commerce -->
+    <div class="project-card bbox">
+      <div class="project-top">
+        <h3>🛒 Role-Based E-Commerce Management System</h3>
+      </div>
+      <p>A Java desktop application managing multi-role e-commerce workflows — Admin, Customer Support, Warehouse, Delivery, Supplier, and Fraud Analyst — with role-specific dashboards and a normalized MySQL backend.</p>
+      <div class="tag-row">
+        <span class="tag">Java</span><span class="tag">Swing</span><span class="tag">MySQL</span><span class="tag">JDBC</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/adullagayathri/Role-Based_E-Commerce_Management_System" target="_blank">Repository →</a>
+      </div>
+    </div>
+
+    <!-- DMQL - clearly marked collaborative -->
+    <div class="project-card">
+      <div class="project-top">
+        <h3>🛒 Scalable E-Commerce Data Management System</h3>
+        <span class="badge" style="background:var(--ink-soft);">Collaborative · Team Project</span>
+      </div>
+      <p>A normalized (3NF) relational data system modeling enterprise e-commerce workflows — customers, products, orders, regional hierarchies — built as part of a Data Models &amp; Query Languages course project.</p>
+      <ul>
+        <li>Contributed schema design, SQL query optimization, and Python-based data ingestion/validation tooling</li>
+      </ul>
+      <div class="tag-row">
+        <span class="tag">SQL</span><span class="tag">SQLite3</span><span class="tag">Data Modeling</span>
+      </div>
+      <p class="note">Team project — repository owned and maintained by a teammate.</p>
+      <div class="project-links">
+        <a href="https://github.com/Jayachandragg/DMQL-FINAL-PROJECT-E-COMMERCE" target="_blank">Repository →</a>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <section id="skills">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Capabilities</div>
-      <h2>Technical skills</h2>
+      <span class="eyebrow mono">05 / Skills</span>
+      <h2>Tools of the trade</h2>
     </div>
     <div class="skills-grid">
-      <div class="skill-col">
-        <h4>AI &amp; Machine Learning</h4>
-        <ul>
-          <li>Computer Vision</li>
-          <li>Multimodal AI &amp; VLMs</li>
-          <li>Generative Modeling (VAEs)</li>
-          <li>Deep Learning (PyTorch, TensorFlow)</li>
-          <li>RAG &amp; LLM Applications</li>
-          <li>Scikit-learn</li>
-        </ul>
+      <div class="skill-group">
+        <h4>Machine Learning &amp; AI</h4>
+        <div class="tag-row">
+          <span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">Scikit-learn</span>
+          <span class="tag">Computer Vision</span><span class="tag">NLP / Transformers</span>
+          <span class="tag">Generative Models (VAE)</span><span class="tag">Multimodal AI</span><span class="tag">RAG</span>
+        </div>
       </div>
-      <div class="skill-col">
-        <h4>Infrastructure &amp; MLOps</h4>
-        <ul>
-          <li>Docker &amp; Kubernetes</li>
-          <li>FastAPI</li>
-          <li>Redis</li>
-          <li>AWS &amp; GCP</li>
-          <li>Distributed Data Engineering (Spark, Hadoop)</li>
-          <li>Salesforce LWC / Apex</li>
-        </ul>
+      <div class="skill-group">
+        <h4>Infra &amp; MLOps</h4>
+        <div class="tag-row">
+          <span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">FastAPI</span>
+          <span class="tag">Redis</span><span class="tag">AWS</span><span class="tag">GCP</span><span class="tag">Airflow</span>
+        </div>
       </div>
-      <div class="skill-col">
-        <h4>Languages &amp; Data</h4>
-        <ul>
-          <li>Python · SQL · Java</li>
-          <li>PostgreSQL · MongoDB</li>
-          <li>ETL &amp; Workflow Automation</li>
-          <li>Git / GitHub</li>
-          <li>Power BI · Tableau</li>
-          <li>Pandas · NumPy</li>
-        </ul>
+      <div class="skill-group">
+        <h4>Data Engineering</h4>
+        <div class="tag-row">
+          <span class="tag">Spark</span><span class="tag">Hadoop</span><span class="tag">SQL</span>
+          <span class="tag">PostgreSQL</span><span class="tag">MongoDB</span><span class="tag">ETL Pipelines</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Languages &amp; Tools</h4>
+        <div class="tag-row">
+          <span class="tag">Python</span><span class="tag">Java</span><span class="tag">SQL</span>
+          <span class="tag">Git</span><span class="tag">Jupyter</span><span class="tag">VS Code</span>
+        </div>
       </div>
     </div>
   </div>
@@ -597,43 +573,36 @@
 
 <footer id="contact">
   <div class="wrap">
+    <h2>Let's build something.</h2>
+    <p>Open to full-time AI Engineer and Machine Learning Engineer roles — particularly in computer vision, multimodal AI, or applied generative AI.</p>
     <div class="contact-grid">
-      <div>
-        <div class="eyebrow">Get in touch</div>
-        <h2>Let's build something that ships.</h2>
-        <p class="lead">Open to full-time AI Engineer and Machine Learning Engineer roles. Reach out directly or find me on GitHub and LinkedIn.</p>
-        <div class="hero-cta">
-          <a class="btn primary" href="mailto:gayathri.adulla.18@gmail.com">Email Me</a>
-          <a class="btn" href="https://www.linkedin.com/in/gayathri-adulla-924056216/" target="_blank" rel="noopener">LinkedIn</a>
-        </div>
+      <div class="contact-item">
+        <div class="lbl">Email</div>
+        <a href="mailto:gayathri.adulla.18@gmail.com">gayathri.adulla.18@gmail.com</a>
       </div>
-      <ul class="contact-list">
-        <li><span>Location</span><span>Buffalo, New York</span></li>
-        <li><span>Email</span><a href="mailto:gayathri.adulla.18@gmail.com">gayathri.adulla.18@gmail.com</a></li>
-        <li><span>Phone</span><span>+1 (617) 418-0803</span></li>
-        <li><span>GitHub</span><a href="https://github.com/adullagayathri" target="_blank" rel="noopener">github.com/adullagayathri</a></li>
-        <li><span>Résumé</span><a href="https://drive.google.com/file/d/18C1Idqz57xC-xbwvCurjMggupCNyyAGq/view?usp=sharing" target="_blank" rel="noopener">Download PDF</a></li>
-      </ul>
+      <div class="contact-item">
+        <div class="lbl">GitHub</div>
+        <a href="https://github.com/adullagayathri" target="_blank">github.com/adullagayathri</a>
+      </div>
+      <div class="contact-item">
+        <div class="lbl">LinkedIn</div>
+        <a href="https://www.linkedin.com/in/gayathri-adulla-924056216/" target="_blank">linkedin.com/in/gayathri-adulla</a>
+      </div>
+      <div class="contact-item">
+        <div class="lbl">Location</div>
+        <span>Buffalo, New York</span>
+      </div>
+      <div class="contact-item">
+        <div class="lbl">Resume</div>
+        <a href="https://drive.google.com/file/d/18C1Idqz57xC-xbwvCurjMggupCNyyAGq/view?usp=sharing" target="_blank">Download PDF →</a>
+      </div>
     </div>
     <div class="foot-bottom">
       <span>© 2026 Gayathri Adulla</span>
-      <span>Designed for clarity, built for production.</span>
+      <span>Built with intent, not a template.</span>
     </div>
   </div>
 </footer>
-
-<script>
-  // reveal bracket motif on scroll for project cards
-  const obs = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting) e.target.classList.add('in-view');
-    });
-  }, {threshold:0.2});
-  document.querySelectorAll('.proj-card').forEach(el=>{
-    el.classList.add('bracket');
-    obs.observe(el);
-  });
-</script>
 
 </body>
 </html>
